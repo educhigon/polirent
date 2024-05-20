@@ -7,3 +7,16 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+
+
+a = User.create(email: "bob@gmail.com")
+b = User.create(email: "alice@gmail.com")
+c = User.create(email: "frank@gmail.com")
+
+x = Politician.create(name: "Donald", location: "Berlin", cost: 55, description: "hi i'm donald", user_id: a)
+y = Politician.create(name: "Angela", location: "Paris", cost: 111, description: "hi i'm angela", user_id: b)
+
+Booking.create(politician_id: x, user_id: c, status: 0)
+Booking.create(politician_id: y, user_id: a, status: 0)
+
+p "seed done 😊"
