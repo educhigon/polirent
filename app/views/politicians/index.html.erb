@@ -1,1 +1,11 @@
-<h1>Politicians Index</h1>
+<div class="container">
+  <h1>Politicians Index</h1>
+  <% @politicians.each do |poli| %>
+    <div class="card-category">
+      <h2><%= link_to poli.name, politician_path(poli.id) %></h2>
+      <p><%= poli.location %></p>
+      <p><%= poli.cost %></p>
+      <p><%= poli.description %></p>
+  	</div>
+  <% end %>
+</div>
