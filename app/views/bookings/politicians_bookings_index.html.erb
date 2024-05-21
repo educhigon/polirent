@@ -1,1 +1,13 @@
 <h1>politicians_bookings_index dummy page</h1>
+
+<p>bookings.count: <%= @bookings.count %></p>
+
+<ul>
+  <% @bookings.each do |booking| %>
+    <li>
+    <p>booking id: <%= booking.id %></p>
+    <p>booking status: <%= booking.status %></p>
+
+    </li>
+  <% end %>
+</ul>
