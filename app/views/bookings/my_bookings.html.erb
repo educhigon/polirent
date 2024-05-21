@@ -1,6 +1,4 @@
 <h1>my_bookings dummy page</h1>
-
-
 <ul>
   <% @bookings.each do |booking| %>
   <li>
@@ -9,10 +7,7 @@
       <p>description: <%= booking.politician.description %></p>
       <p>cost: <%= booking.politician.cost %> €/night</p>
       <p>location: <%= booking.politician.location %></p>
-
-
       <p>user-mail: <%= booking.user.email %></p>
-
       <p>status: <%= booking.status %></p>
     </div>
   </li>
