@@ -22,9 +22,11 @@
             <%= image_tag "https://static.wixstatic.com/media/eaebf2_57eeed3c45e54dd493a1cc981df0aebb~mv2.jpg/v1/fill/w_720,h_492,al_c,lg_1,q_80/eaebf2_57eeed3c45e54dd493a1cc981df0aebb~mv2.jpg", class: "avatar", alt: "dropdown menu" %>
           </a>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <%= link_to "Create new politician", "/politicians/new", class: "dropdown-item" %>
-              <%= link_to "See my politicians", "/politicians/owned", class: "dropdown-item" %>
-              <%= link_to "See my bookings", "bookings/my_bookings", class: "dropdown-item" %>
+
+              <%= link_to "Create new politician", new_politician_path, class: "dropdown-item" %>
+              <%= link_to "See my politicians", my_politicians_path, class: "dropdown-item" %>
+              <%= link_to "See my bookings", bookings_my_bookings_path, class: "dropdown-item" %>
+
               <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
             </div>
           </li>
