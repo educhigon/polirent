@@ -2,7 +2,7 @@ class PoliticiansController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index]
 
   def index
-    @politicans = Politician.all
+    @politicians = Politician.all
   end
 
   def new
@@ -19,6 +19,7 @@ class PoliticiansController < ApplicationController
   end
 
   def show
+    raise
   end
 
   def edit
