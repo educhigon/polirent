@@ -19,6 +19,7 @@ class PoliticiansController < ApplicationController
   end
 
   def show
+    @politician = Politician.find(params[:id])
   end
 
   def edit
