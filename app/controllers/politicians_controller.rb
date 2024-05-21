@@ -1,7 +1,7 @@
 class PoliticiansController < ApplicationController
 
   def index
-    @politicans = Politician.all
+    user_signed_in? ? @politicans = Politician.all : @politicans = Politician.all
   end
 
 end
