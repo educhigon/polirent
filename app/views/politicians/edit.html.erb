@@ -1,0 +1,10 @@
+<div class="container mt-5">
+  <h1>Edit politician</h1>
+
+  <%= render "form", politician: @politician %>
+
+  <hr>
+  <%= link_to politicians_path do %>
+    <i class="fa-solid fa-arrow-rotate-left"></i> Back to list
+  <% end %>
+</div>
