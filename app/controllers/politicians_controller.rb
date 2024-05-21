@@ -1,7 +1,8 @@
 class PoliticiansController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:index]
 
   def index
-    user_signed_in? ? @politicans = Politician.all : @politicans = Politician.all
+    @politicans = Politician.all
   end
 
 end
