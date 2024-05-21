@@ -8,6 +8,9 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 
+User.destroy_all
+Politician.destroy_all
+Booking.destroy_all
 
 a = User.create(email: "bob@gmail.com")
 b = User.create(email: "alice@gmail.com")
