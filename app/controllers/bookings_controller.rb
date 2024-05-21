@@ -10,12 +10,22 @@ class BookingsController < ApplicationController
     @bookings = @politician.bookings
   end
 
-  def new
-    @booking = Booking.new
-  end
+  # def new
+  #   @booking = Booking.new
+  # end
 
   def create
-    @booking.new(booking_params)
+    poli_id = params[:id]
+    user_id = current_user.id
+    status = 0
+    x = { politician_id: poli_id, user_id: user_id, status: status}
+    booking = Booking.new(x)
+
+    if booking.save
+      redirect_to politician_path(poli_id), notice: "Booking created"
+    else
+      render politician_path(poli_id), notice: "Booking failed"
+    end
   end
 
   def status_confirm
@@ -37,6 +47,6 @@ class BookingsController < ApplicationController
   private
 
   def booking_params
+    # dont need this? only params[:id] everything else is given
   end
-
 end
