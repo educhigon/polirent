@@ -1,5 +1,8 @@
 class PoliticiansController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index]
+  before_action :set_politician, only: [:show]
+  before_action :new_politician, only: [:create, :edit]
+
 
   def index
     @politicians = Politician.all
@@ -10,7 +13,6 @@ class PoliticiansController < ApplicationController
   end
 
   def create
-    @politician = Politician.new(politician_params)
     @politician.user_id = current_user.id
     if @politician.save
       redirect_to politicians_path(@politician)
@@ -20,11 +22,9 @@ class PoliticiansController < ApplicationController
   end
 
   def show
-    @politician = Politician.find(params[:id])
   end
 
   def edit
-    @politician = Politician.new(politician_params)
   end
 
   def update
@@ -40,6 +40,12 @@ class PoliticiansController < ApplicationController
     redirect_to politician_path, status: :see_other
   end
 
+  def owned
+    #display all the politicians belonging to current user
+    #link the politicians to individual show page
+    @politicians = Politician.where(user_id: current_user.id)
+  end
+
 end
 
 private
@@ -50,4 +56,8 @@ end
 
 def set_politician
   @politician = Politician.find(params[:id])
+end
+
+def new_politician
+  @politician = Politician.new(politician_params)
 end
