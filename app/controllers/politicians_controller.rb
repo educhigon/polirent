@@ -36,4 +36,5 @@ class PoliticiansController < ApplicationController
     @politician.destroy
     redirect_to politician_path, status: :see_other
   end
+
 end
