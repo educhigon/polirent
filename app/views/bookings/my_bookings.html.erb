@@ -1,1 +1,15 @@
 <h1>my_bookings dummy page</h1>
+<p><%= @user %></p>
+<ul>
+<% @user.each do |user| %>
+    <li>
+  <p><%= user.id %></p>
+  </li>
+  <% end %>
+
+</ul>
+<p><%= @bookings %></p>
+<p><%= @bookings.class %></p>
+<% @bookings.each do |booking| %>
+<p><%= booking.status %></p>
+<% end %>
