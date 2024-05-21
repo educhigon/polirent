@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
   devise_for :users
 
+
   root to: "politicians#index"
+  get "politicians/owned", to: "politicians#owned", as: :my_politcians
+  
   resources :politicians
 
   get "bookings/my_bookings", to: "bookings#my_bookings"
