@@ -8,9 +8,8 @@ Rails.application.routes.draw do
   get "politicians/:id/bookings", to: "bookings#politicians_bookings_index", as: :p_b_index
 
   # get "politicians/id/bookings/new", to: "bookings#new"
-  # post "politicians/id/bookings/new", to: "bookings#create"
+  post "politicians/:id/bookings/create", to: "bookings#create", as: :book
 
   patch "bookings/:id/status_confirm", to: "bookings#status_confirm", as: :confirm
   patch "bookings/:id/status_reject", to: "bookings#status_reject", as: :reject
-
 end
