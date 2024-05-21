@@ -17,5 +17,9 @@ Rails.application.routes.draw do
   # root "posts#index"
 end
 
-
-# GET	politicians/id/bookings	#politicians_index	List of booking one poli
+#### TODO ::::
+#   bookings	GET	politicians/id/bookings	#politicians_bookings_index	List of booking one poli
+# 	GET	bookings/my_bookings	#my_bookings	List of my bookings
+# 	PATCH	bookings/id/rejected	#update_request	Update
+# 	PATCH	bookings/id/aproved	#update_request	Update
+# 	POST	politicians/id/bookings	#create	Create a new booking
