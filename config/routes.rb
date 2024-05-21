@@ -7,15 +7,12 @@ Rails.application.routes.draw do
 
 
   get "bookings/my_bookings", to: "bookings#my_bookings"
-  get "politicians/:id/bookings", to: "bookings#politicians_bookings_index"
+  get "politicians/:id/bookings", to: "bookings#politicians_bookings_index", as: :p_b_index
 
-  # Defines the root path route ("/")
-  # root "posts#index"
+  # get "politicians/id/bookings/new", to: "bookings#new"
+  # post "politicians/id/bookings/new", to: "bookings#create"
+
+  patch "bookings/:id/status_confirm", to: "bookings#status_confirm", as: :confirm
+  patch "bookings/:id/status_reject", to: "bookings#status_reject", as: :reject
+
 end
-
-#### TODO ::::
-#   bookings	GET	politicians/id/bookings	#politicians_bookings_index	List of booking one poli
-# 	GET	bookings/my_bookings	#my_bookings	List of my bookings
-# 	PATCH	bookings/id/rejected	#update_request	Update
-# 	PATCH	bookings/id/aproved	#update_request	Update
-# 	POST	politicians/id/bookings	#create	Create a new booking
