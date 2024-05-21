@@ -1,15 +1,15 @@
 <h1>my_bookings dummy page</h1>
-<p><%= @user %></p>
 <ul>
-<% @user.each do |user| %>
-    <li>
-  <p><%= user.id %></p>
+  <% @bookings.each do |booking| %>
+  <li>
+    <div>
+      <p>poli-name: <%= booking.politician.name %></p>
+      <p>description: <%= booking.politician.description %></p>
+      <p>cost: <%= booking.politician.cost %> €/night</p>
+      <p>location: <%= booking.politician.location %></p>
+      <p>user-mail: <%= booking.user.email %></p>
+      <p>status: <%= booking.status %></p>
+    </div>
   </li>
   <% end %>
-
 </ul>
-<p><%= @bookings %></p>
-<p><%= @bookings.class %></p>
-<% @bookings.each do |booking| %>
-<p><%= booking.status %></p>
-<% end %>
