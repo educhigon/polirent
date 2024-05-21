@@ -1,5 +1,6 @@
 <h1>Welcome to my page</h1>
 <h2><%= @politician.name %></h2>
+<img <%= "src= #{@politician.image_url} alt=#{@politician.name}" %> width="50" height="60" >
 <p><%= @politician.location %></p>
 <p><%= @politician.cost %></p>
 <p><%= @politician.description %></p>
@@ -12,6 +13,3 @@
 
 
 <%= button_to "Book now!", book_path(@politician.id), class: "btn btn-danger" %>
-
-
-

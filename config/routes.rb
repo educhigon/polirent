@@ -3,8 +3,8 @@ Rails.application.routes.draw do
 
 
   root to: "politicians#index"
-  get "politicians/owned", to: "politicians#owned", as: :my_politcians
-  
+  get "politicians/owned", to: "politicians#owned", as: :my_politicians
+
   resources :politicians
 
   get "bookings/my_bookings", to: "bookings#my_bookings"
