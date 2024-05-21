@@ -4,8 +4,6 @@ Rails.application.routes.draw do
   root to: "politicians#index"
   resources :politicians
 
-
-
   get "bookings/my_bookings", to: "bookings#my_bookings"
   get "politicians/:id/bookings", to: "bookings#politicians_bookings_index", as: :p_b_index
 

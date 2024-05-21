@@ -1,3 +1,11 @@
-<h1>Welcome to my politici</h1>
+<h1>Welcome to my page</h1>
+<h2><%= @politician.name %></h2>
+<p><%= @politician.location %></p>
+<p><%= @politician.cost %></p>
+<p><%= @politician.description %></p>
 
+  <%= link_to politicians_path do %>
+    <i class="fa-solid fa-arrow-rotate-left"></i> Back to list
+  <% end %>
+</div>
 

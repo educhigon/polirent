@@ -2,7 +2,7 @@ class PoliticiansController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index]
 
   def index
-    @politicans = Politician.all
+    @politicians = Politician.all
   end
 
   def new
@@ -11,14 +11,16 @@ class PoliticiansController < ApplicationController
 
   def create
     @politician = Politician.new(politician_params)
+    @politician.user_id = current_user.id
     if @politician.save
-      redirect_to politicians_path
+      redirect_to politicians_path(@politician)
     else
       render :new, status: :unprocessable_entity
     end
   end
 
   def show
+    @politician = Politician.find(params[:id])
   end
 
   def edit
@@ -38,4 +40,14 @@ class PoliticiansController < ApplicationController
     redirect_to politician_path, status: :see_other
   end
 
+end
+
+private
+
+def politician_params
+  params.require(:politician).permit(:name, :location, :cost, :description)
+end
+
+def set_politician
+  @politician = Politician.find(params[:id])
 end
