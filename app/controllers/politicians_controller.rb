@@ -1,11 +1,16 @@
 class PoliticiansController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:index]
+  skip_before_action :authenticate_user!, only: [:index, :show]
   before_action :set_politician, only: [:show]
   before_action :new_politician, only: [:create, :edit]
 
 
   def index
-    @politicians = Politician.all
+    if params[:query].present?
+      @query = params[:query]
+      @politicians = Politician.where("name LIKE ?", "%#{params[:query]}%")
+    else
+      @politicians = Politician.all
+    end
   end
 
   def new
@@ -51,7 +56,7 @@ end
 private
 
 def politician_params
-  params.require(:politician).permit(:name, :location, :cost, :description)
+  params.require(:politician).permit(:name, :location, :cost, :description, :photo )
 end
 
 def set_politician

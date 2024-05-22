@@ -14,9 +14,11 @@
           <li class="nav-item active">
             <%= link_to "Home", "/", class: "nav-link" %>
           </li>
+
           <li class="nav-item active">
             <%= current_user.email %>
           </li>
+
           <li class="nav-item dropdown">
           <a href="#" class="avatar" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <%= image_tag "https://static.wixstatic.com/media/eaebf2_57eeed3c45e54dd493a1cc981df0aebb~mv2.jpg/v1/fill/w_720,h_492,al_c,lg_1,q_80/eaebf2_57eeed3c45e54dd493a1cc981df0aebb~mv2.jpg", class: "avatar", alt: "dropdown menu" %>
