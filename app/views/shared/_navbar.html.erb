@@ -1,7 +1,7 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-  <div class="container-fluid">
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon" style="background-color: #F7DCB9;">
+  <div class="container-fluid d-flex justify-content-between mx-5 align-text-center">
     <%= link_to "/", class: "navbar-brand" do %>
-      <%= image_tag "https://t4.ftcdn.net/jpg/03/91/96/41/360_F_391964158_ZfjVbEPaV1eL4zVhI8xRNAyo4BCiTR2s.jpg" %>
+      <%= image_tag "Logo.png", :style => "width: 100px"  %>
     <% end %>
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -14,9 +14,11 @@
           <li class="nav-item active">
             <%= link_to "Home", "/", class: "nav-link" %>
           </li>
-          <li class="nav-item">
-            <%= link_to "Messages?", "#", class: "nav-link" %>
+
+          <li class="nav-item active">
+            <%= current_user.email %>
           </li>
+
           <li class="nav-item dropdown">
           <a href="#" class="avatar" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <%= image_tag "https://static.wixstatic.com/media/eaebf2_57eeed3c45e54dd493a1cc981df0aebb~mv2.jpg/v1/fill/w_720,h_492,al_c,lg_1,q_80/eaebf2_57eeed3c45e54dd493a1cc981df0aebb~mv2.jpg", class: "avatar", alt: "dropdown menu" %>
