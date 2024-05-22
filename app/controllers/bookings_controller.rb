@@ -19,23 +19,23 @@ class BookingsController < ApplicationController
   def create
     poli_id = params[:id]
     user_id = current_user.id
-    status = 0
-    x = { politician_id: poli_id, user_id: user_id, status: status}
-    booking = Booking.new(x)
+    # status = 0
+    attributes = { politician_id: poli_id, user_id: user_id}
+    booking = Booking.new(attributes)
 
     if booking.save
-      redirect_to politician_path(poli_id), notice: "Booking created"
+      # redirect_to politician_path(poli_id), notice: "Booking created"
+      redirect_to bookings_my_bookings_path, notice: "Booking created"
     else
       render politician_path(poli_id), notice: "Booking failed"
     end
   end
 
   def status_confirm
-    # raise
     @booking = Booking.find(params[:id])
     @booking.status = 1
     @booking.save
-    redirect_to p_b_index_path(params[:id])
+    # redirect_to p_b_index_path(params[:id])
   end
 
   def status_reject
