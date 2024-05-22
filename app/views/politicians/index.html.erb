@@ -1,16 +1,28 @@
+<div class="hero" style="background-image: asset-url('Room1.jpeg'); height: 300px; width: 100%; background-color: #343434"></div>
 <div class="container">
-  <h1>Politicians Index</h1>
-  <% @politicians.each do |poli| %>
-    <div class="card-category">
-      <h2><%= link_to poli.name, politician_path(poli.id) %></h2>
-      <% if poli.image_url.present? %>
+
+  <h1>Rent your Politician!</h1>
+  <div class="cards d-flex flex-wrap">
+
+    <% @politicians.each do |poli| %>
+    <%= link_to politician_path(poli.id) do %>
+      <div class="card-product border">
+        <div class="image_rooms" style="background-image: asset-url('Room1.jpeg')"></div>
+        <div class="card-product-infos ">
+          <h2><%= poli.name %></h2>
+        <% if poli.image_url.present? %>
           <img src="<%= poli.image_url %>" alt="<%= poli.name %>" width="50" height="60">
       <% else %>
       <%= cl_image_tag(poli.photo.key, width: 50, height: 60, crop: :fill) %>
       <% end %>
-      <p><%= poli.location %></p>
-      <p><%= poli.cost %></p>
-      <p><%= poli.description %></p>
-  	</div>
+          <p><%= poli.location %></p>
+          <p><%= poli.cost %></p>
+          <p><%= poli.description %></p>
+        </div>
+      </div>
+    <% end %>
+
   <% end %>
+
+  </div>
 </div>
