@@ -46,7 +46,8 @@
 
 
 
-<% if @politician.user.id == current_user.id%>
-<%= render "bookinglist", bookings: @politician.bookings %>
+<% if current_user%>
+  <% if @politician.user.id == current_user.id%>
+  <%= render "bookinglist", bookings: @politician.bookings %>
+  <% end %>
 <% end %>
-
