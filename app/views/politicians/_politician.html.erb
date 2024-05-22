@@ -1,0 +1,14 @@
+  <div class="card-product border">
+    <div class="image_rooms" style="background-image: asset-url('Room1.jpeg')"></div>
+    <div class="card-product-infos ">
+      <h2>Poli-name: <%= politician.name %></h2>
+      <hr class="solid">
+      <p class="mt-3 mb-3">Description: <%= politician.description[0..100] %></p>
+      <div class="row">
+      <br>
+      <hr class="solid">
+      <h6 class="col-6" style="color: #816F5D">Location: <%= politician.location %></h6>
+      <h6 class="col-6"><%= politician.cost %> €/night</h6>
+      </div>
+    </div>
+  </div>

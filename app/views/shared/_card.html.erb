@@ -1,15 +1,9 @@
-<div class="container">
-<br>
-<h1 class="text-center">MY BOOKING PAGE</h1>
 
-
-<div class="d-flex flex-wrap">
-  <% @bookings.each do |booking| %>
   <div class="card-product border">
     <div class="image_rooms" style="background-image: asset-url('Room1.jpeg')"></div>
     <div class="card-product-infos ">
       <h2>Poli-name: <%= booking.politician.name %></h2>
-      <p>Description: <%= booking.politician.description[0..100] %></p>
+      <p>Description: <%= booking.politician.description %></p>
       <p>Location: <%= booking.politician.location %></p>
       <p>User-mail: <%= booking.user.email %></p>
       <p>Status: <%= booking.status %></p>
@@ -17,6 +11,3 @@
       <h5>Cost: <%= booking.politician.cost %> €/night</h5>
     </div>
   </div>
-  <% end %>
-</div>
-</div>
