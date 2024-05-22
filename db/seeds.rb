@@ -10,6 +10,11 @@ d = User.create(email: "derekRIGHT@gmail.com", password: "password")
 e = User.create(email: "enzoLEFT@gmail.com", password: "password")
 
 p1 = Politician.create!( name: 'Barack Obama', location: "USA", cost: 100, description: "something something", image_url:"https://ygo-assets-entities-us.yougov.net/516e6836-d278-11ea-a709-979a0378f022.jpg?pw=70", user_id: a.id )
+
+file = URI.open("https://ygo-assets-entities-us.yougov.net/516e6836-d278-11ea-a709-979a0378f022.jpg")
+p1.photo.attach(io:file, filename: "something something", content_type: "image/jpg")
+p1.save
+
 p2 = Politician.create!( name: 'George W. Bush', location: "USA", cost: 200, description: "something something", image_url:"https://ygo-assets-entities-us.yougov.net/af46ff95-738d-11ea-affe-f9053ded7ac4.jpg?pw=70", user_id: a.id )
 p3 = Politician.create!( name: 'Joe Biden', location: "USA", cost: 300, description: "something something", image_url:"https://ygo-assets-entities-us.yougov.net/67a5222a-5c70-11eb-8d48-eb9b21d67bdc.jpg?pw=70", user_id: a.id )
 p4 = Politician.create!( name: 'Hillary Clinton', location: "USA", cost: 400, description: "something something", image_url:"https://ygo-assets-entities-us.yougov.net/8f2b363a-4413-11e6-90f5-85880927bf80.jpg?pw=70", user_id: a.id )
