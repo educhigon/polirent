@@ -1,3 +1,4 @@
+
 <div class="container">
   <div class="container m-10" style="width: 800">
     <div class="row">
@@ -5,7 +6,11 @@
       <div class="col-sm-6">
 
         <div class="card">
-            <img <%= "src= #{@politician.image_url} alt=#{@politician.name}" %> width="50" height="60" >
+          <% if @politician.image_url.present? %>
+            <img src="<%= @politician.image_url %>" alt="<%= @politician.name %>" width="50" height="60">
+          <% else %>
+            <%= cl_image_tag(@politician.photo.key, width: 50, height: 60, crop: :fill) %>
+          <% end %>
         </div>
       </div>
 
@@ -34,3 +39,14 @@
     </div>
   </div>
 </div>
+
+  <%= link_to politicians_path do %>
+    <i class="fa-solid fa-arrow-rotate-left"></i> Back to list
+  <% end %>
+
+
+
+<% if @politician.user.id == current_user.id%>
+<%= render "bookinglist", bookings: @politician.bookings %>
+<% end %>
+
