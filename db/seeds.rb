@@ -2,12 +2,12 @@ Booking.destroy_all
 Politician.destroy_all
 User.destroy_all
 
-a = User.create!(email: "bobUSA@gmail.com", password: "password")
-b = User.create(email: "aliceEU@gmail.com", password: "password")
-c = User.create(email: "frankWORLD@gmail.com", password: "password")
+a = User.create!(email: "bobusa@gmail.com", password: "password")
+b = User.create(email: "aliceeu@gmail.com", password: "password")
+c = User.create(email: "frankworld@gmail.com", password: "password")
 
-d = User.create(email: "derekRIGHT@gmail.com", password: "password")
-e = User.create(email: "enzoLEFT@gmail.com", password: "password")
+d = User.create(email: "derekright@gmail.com", password: "password")
+e = User.create(email: "enzoleft@gmail.com", password: "password")
 
 p1 = Politician.create!( name: 'Barack Obama', location: "USA", cost: 100, description: "Barack Hussein Obama II [a]  (born August 4, 1961) is an American politician who served as the 44th  president of the United States  from 2009 to 2017. A member of the  Democratic Party , he was the first  African-American president  in United States history. Obama previously served as a U.S. senator representing Illinois from 2005 to 2008, as an  Illinois state senator  from 1997 to 2004, and as a community service organizer, civil rights  lawyer, and university lecturer. ", image_url:"https://ygo-assets-entities-us.yougov.net/516e6836-d278-11ea-a709-979a0378f022.jpg?pw=7000", user_id: a.id )
 p2 = Politician.create!( name: 'George W. Bush', location: "USA", cost: 200, description: "George Walker Bush  (born July 6, 1946) is an American politician and businessman who served  as the 43rd  president of the United States  from 2001 to 2009. A member of the  Republican Party , he previously served as the 46th  governor of Texas  from 1995 to 2000. ", image_url:"https://ygo-assets-entities-us.yougov.net/af46ff95-738d-11ea-affe-f9053ded7ac4.jpg?pw=7000", user_id: a.id )

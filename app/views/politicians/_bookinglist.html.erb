@@ -1,16 +1,10 @@
-<h1>politicians_requests_index dummy page</h1>
-
-<p>bookings.count: <%= @bookings.count %></p>
-
 <ul>
-  <% @bookings.each do |booking| %>
+  <% bookings.each do |booking| %>
     <li>
     <p>booking id: <%= booking.id %></p>
     <p>booking status: <%= booking.status %></p>
     <%= button_to "Confirm", confirm_path(booking.id), method: :patch %>
     <%= button_to "Reject", reject_path(booking.id), method: :patch %>
-
     </li>
-
   <% end %>
 </ul>

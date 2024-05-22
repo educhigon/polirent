@@ -46,12 +46,8 @@ class PoliticiansController < ApplicationController
   end
 
   def owned
-    #display all the politicians belonging to current user
-    #link the politicians to individual show page
     @politicians = Politician.where(user_id: current_user.id)
   end
-
-end
 
 private
 
@@ -59,10 +55,11 @@ def politician_params
   params.require(:politician).permit(:name, :location, :cost, :description, :photo )
 end
 
-def set_politician
-  @politician = Politician.find(params[:id])
-end
+  def set_politician
+    @politician = Politician.find(params[:id])
+  end
 
-def new_politician
-  @politician = Politician.new(politician_params)
+  def new_politician
+    @politician = Politician.new(politician_params)
+  end
 end
