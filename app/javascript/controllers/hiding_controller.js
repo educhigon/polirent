@@ -4,24 +4,19 @@ import { Controller } from "@hotwired/stimulus"
 export default class extends Controller {
   static targets = [ "button", "buttonDiv", "statusDisplay" ]
   static values = {
-    xxx: String,
-    bob: String
+    status: String,
   }
 
   connect() {
     console.log("bonjour");
-    console.log(this.bobValue);
-    console.log(this.xxxValue);
-
-    // this.button.classList.toggle("d-none")
+    console.log(this.statusValue);
+    this.statusDisplayTarget.innerText = `status: ${this.statusValue}`
   }
 
   toggleClass(event) {
-    // event.preventDefault();
-    console.log("toggle triggered");
     this.buttonDivTarget.classList.toggle("d-none")
-    console.log(this.xxxValue);
-    this.element.innerHtml = this.xxxValue
-    this.statusDisplayTarget.innerText = `status: ${this.xxxValue}`
+    const buttonText = event.currentTarget
+    this.statusValue = `${buttonText.innerText}ed`
+    this.statusDisplayTarget.innerText = `status: ${this.statusValue}`
   }
 }
