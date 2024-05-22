@@ -1,7 +1,7 @@
 class User < ApplicationRecord
   has_many :politicians
   has_many :bookings
-  has_many :politicians, through: :bookings
+  has_many :booked_politicians, class_name: 'Politician', foreign_key: 'user_id', through: :bookings
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable

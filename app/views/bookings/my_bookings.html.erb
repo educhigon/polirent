@@ -6,7 +6,15 @@
 <div class="d-flex flex-wrap">
   <% @bookings.each do |booking| %>
   <div class="card-product border">
-    <div class="image_rooms" style="background-image: asset-url('Room1.jpeg')"></div>
+    <div class="image_rooms">
+      <% if booking.politician.image_url.present? %>
+        <img src="<%= booking.politician.image_url %>" alt="<%= booking.politician.name %>" width="50" height="60">
+      <% else %>
+        <%= cl_image_tag(booking.politician.photo.key, width: 50, height: 60, crop: :fill) %>
+      <% end %>
+    </div>
+
+
     <div class="card-product-infos ">
       <h2>Poli-name: <%= booking.politician.name %></h2>
       <p>Description: <%= booking.politician.description[0..100] %></p>

@@ -1,5 +1,5 @@
 <ul>
-  <% @bookings.each do |booking| %>
+  <% bookings.each do |booking| %>
     <li data-controller="hiding" data-hiding-status-value="<%= booking.status %>">
       <p>booking id: <%= booking.id %></p>
       <p>booking status(obsolete): <%= booking.status %></p>
