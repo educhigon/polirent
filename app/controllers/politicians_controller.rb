@@ -22,6 +22,10 @@ class PoliticiansController < ApplicationController
   end
 
   def show
+    if Politician.user_id == current_user.id
+      render 
+      #render partial - that is list of bookings, that entails all the bookings of the accessed politician
+      #@bookings has to exist in here (for rendering purposes)
   end
 
   def edit

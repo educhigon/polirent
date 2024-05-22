@@ -7,7 +7,7 @@ class BookingsController < ApplicationController
     @bookings = Booking.where(user_id: user_id)
   end
 
-  def politicians_bookings_index
+  def politicians_requests_index
     @politician = Politician.find(params[:id])
     @bookings = @politician.bookings
   end
