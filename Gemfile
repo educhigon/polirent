@@ -26,11 +26,6 @@ gem "stimulus-rails"
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 gem "jbuilder"
 
-# scsss
-gem "sassc-rails"
-
-# Bootstrap
-gem "bootstrap", "~> 5.2"
 
 
 # Use Redis adapter to run Action Cable in production
