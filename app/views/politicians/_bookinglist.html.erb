@@ -1,20 +1,22 @@
 <ul>
   <% bookings.each do |booking| %>
     <li data-controller="hiding" data-hiding-status-value="<%= booking.status %>">
-      <p>booking id: <%= booking.id %></p>
-      <p>booking status(obsolete): <%= booking.status %></p>
       <p data-hiding-target="statusDisplay"></p>
       <div data-hiding-target="buttonDiv">
 
         <%= link_to "Confirm", confirm_path(booking.id), remote: true,
         data: { turbo_method: :patch,
         action: "click->hiding#toggleClass",
-        hiding_target: "button"} %>
+        hiding_target: "button"},
+        class: "btn btn-secondary",
+        style: "margin: 8px" %>
 
         <%= link_to "Reject", reject_path(booking.id), remote: true,
         data: { turbo_method: :patch,
         action: "click->hiding#toggleClass",
-        hiding_target: "button" } %>
+        hiding_target: "button" },
+        class: "btn btn-secondary",
+        style: "margin: 8px" %>
 
       </div>
     </li>
