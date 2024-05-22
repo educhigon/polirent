@@ -41,8 +41,6 @@ class PoliticiansController < ApplicationController
   end
 
   def owned
-    #display all the politicians belonging to current user
-    #link the politicians to individual show page
     @politicians = Politician.where(user_id: current_user.id)
   end
 
