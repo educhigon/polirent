@@ -1,7 +1,7 @@
 <h1>Welcome to my page</h1>
 <h2><%= @politician.name %></h2>
 <% if @politician.image_url.present? %>
-  <img src="<%= @politician.image_url %>" alt="<%= poli.name %>" width="50" height="60">
+  <img src="<%= @politician.image_url %>" alt="<%= @politician.name %>" width="50" height="60">
 <% else %>
   <%= cl_image_tag(@politician.photo.key, width: 50, height: 60, crop: :fill) %>
 <% end %>

@@ -10,11 +10,11 @@
         <div class="image_rooms" style="background-image: asset-url('Room1.jpeg')"></div>
         <div class="card-product-infos ">
           <h2><%= poli.name %></h2>
-        <% if poli.image_url.present? %>
-          <img src="<%= poli.image_url %>" alt="<%= poli.name %>" width="50" height="60">
-      <% else %>
-      <%= cl_image_tag(poli.photo.key, width: 50, height: 60, crop: :fill) %>
-      <% end %>
+          <% if poli.image_url.present? %>
+            <img src="<%= poli.image_url %>" alt="<%= poli.name %>" width="50" height="60">
+          <% else %>
+          <%= cl_image_tag(poli.photo.key, width: 50, height: 60, crop: :fill) %>
+          <% end %>
           <p><%= poli.location %></p>
           <p><%= poli.cost %></p>
           <p><%= poli.description %></p>
