@@ -1,6 +1,6 @@
 
 <div class="container">
-  <div class="container m-10" style="width: 800">
+  <div class="container m-10" style="width: 800; padding: 16px">
     <div class="row">
 
       <div class="col-sm-6">
@@ -9,14 +9,14 @@
           <% if @politician.image_url.present? %>
             <img src="<%= @politician.image_url %>" alt="<%= @politician.name %>" width="50" height="60">
           <% else %>
-            <%= cl_image_tag(@politician.photo.key, width: 50, height: 60, crop: :fill) %>
+            <%= cl_image_tag(@politician.photo.key, width: 200, height: 200, crop: :fill) %>
           <% end %>
         </div>
       </div>
 
       <div class="col-sm-6">
 
-        <div class="card">
+        <div class="card" style="height: 200px;">
           <div class="card-body">
             <h5 class="card-title; margin: 4px"><%= @politician.name %></h5>
             <div class="row" style="border-bottom: #BDBDBD solid 1px; border-top: #BDBDBD solid 1px; padding: 2px; margin: 4px">
@@ -37,11 +37,18 @@
 
 
     </div>
+
+    <div class="row">
+
+    <p style="margin: 16px"><%= @politician.description %></p>
+
+    </div>
+
   </div>
 </div>
 
   <%= link_to politicians_path do %>
-    <i class="fa-solid fa-arrow-rotate-left"></i> Back to list
+    <i class="fa-solid fa-arrow-rotate-left" style="margin: 8px"></i> Back to list
   <% end %>
 
 
@@ -49,4 +56,3 @@
 <% if @politician.user.id == current_user.id%>
 <%= render "bookinglist", bookings: @politician.bookings %>
 <% end %>
-
