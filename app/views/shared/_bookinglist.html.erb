@@ -5,8 +5,6 @@
     <p>booking status: <%= booking.status %></p>
     <%= button_to "Confirm", confirm_path(booking.id), method: :patch %>
     <%= button_to "Reject", reject_path(booking.id), method: :patch %>
-
     </li>
-
   <% end %>
 </ul>
