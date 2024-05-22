@@ -26,7 +26,6 @@ class PoliticiansController < ApplicationController
     #   render :new
       #render partial - that is list of bookings, that entails all the bookings of the accessed politician
       #@bookings has to exist in here (for rendering purposes)
-    end
   end
 
   def edit
@@ -51,14 +50,15 @@ class PoliticiansController < ApplicationController
 
 private
 
-def politician_params
-  params.require(:politician).permit(:name, :location, :cost, :description)
-end
+  def politician_params
+    params.require(:politician).permit(:name, :location, :cost, :description)
+  end
 
-def set_politician
-  @politician = Politician.find(params[:id])
-end
+  def set_politician
+    @politician = Politician.find(params[:id])
+  end
 
-def new_politician
-  @politician = Politician.new(politician_params)
+  def new_politician
+    @politician = Politician.new(politician_params)
+  end
 end

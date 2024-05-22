@@ -2,12 +2,12 @@ Booking.destroy_all
 Politician.destroy_all
 User.destroy_all
 
-a = User.create!(email: "bobUSA@gmail.com", password: "password")
-b = User.create(email: "aliceEU@gmail.com", password: "password")
-c = User.create(email: "frankWORLD@gmail.com", password: "password")
+a = User.create!(email: "bobusa@gmail.com", password: "password")
+b = User.create(email: "aliceeu@gmail.com", password: "password")
+c = User.create(email: "frankworld@gmail.com", password: "password")
 
-d = User.create(email: "derekRIGHT@gmail.com", password: "password")
-e = User.create(email: "enzoLEFT@gmail.com", password: "password")
+d = User.create(email: "derekright@gmail.com", password: "password")
+e = User.create(email: "enzoleft@gmail.com", password: "password")
 
 p1 = Politician.create!( name: 'Barack Obama', location: "USA", cost: 100, description: "something something", image_url:"https://ygo-assets-entities-us.yougov.net/516e6836-d278-11ea-a709-979a0378f022.jpg?pw=70", user_id: a.id )
 p2 = Politician.create!( name: 'George W. Bush', location: "USA", cost: 200, description: "something something", image_url:"https://ygo-assets-entities-us.yougov.net/af46ff95-738d-11ea-affe-f9053ded7ac4.jpg?pw=70", user_id: a.id )

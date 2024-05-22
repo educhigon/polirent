@@ -14,5 +14,6 @@
 
 <%= button_to "Book now!", book_path(@politician.id), class: "btn btn-danger" %>
 
-
-<%= render "_bookinglist", politician: @politician %>
+<% if @politician.user.id == current_user.id%>
+<%= render "bookinglist", bookings: @politician.bookings %>
+<% end %>
