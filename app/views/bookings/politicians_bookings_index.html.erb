@@ -1,7 +1,3 @@
-<h1>politicians_requests_index dummy page</h1>
-
-<p>bookings.count: <%= @bookings.count %></p>
-
 <ul>
   <% @bookings.each do |booking| %>
     <li data-controller="hiding" data-hiding-status-value="<%= booking.status %>">
@@ -13,8 +9,7 @@
         <%= link_to "Confirm", confirm_path(booking.id), remote: true,
         data: { turbo_method: :patch,
         action: "click->hiding#toggleClass",
-        hiding_target: "button",
-        hiding_xxx_value: "Confirmed" } %>
+        hiding_target: "button"} %>
 
         <%= link_to "Reject", reject_path(booking.id), remote: true,
         data: { turbo_method: :patch,
