@@ -12,24 +12,13 @@ class BookingsController < ApplicationController
     @bookings = @politician.bookings
   end
 
-  # def new
-  #   @booking = Booking.new
-  # end
-
   def create
-    @politician = Politician.find(params[:id])
-    poli_id = params[:politician_id]
-    user_id = current_user.id
-    # status = 0
-    booking = Booking.new(booking_params)
-    booking.user = Booking.current_user.id
-    booking.politician = @politician
-    raise
-    if booking.save
-      # redirect_to politician_path(poli_id), notice: "Booking created"
+    @politician = Politician.find(params[:politician_id])
+    @booking = Booking.new(user: current_user, politician: @politician, start_date: params[:booking][:start_date], end_date: params[:booking][:end_date] )
+    if @booking.save
       redirect_to bookings_my_bookings_path, notice: "Booking created"
     else
-      render politician_path(poli_id), notice: "Booking failed"
+      render :show, status: :unprocessable_entity
     end
   end
 
@@ -47,10 +36,6 @@ class BookingsController < ApplicationController
   end
 
   private
-
-  def booking_params
-    params.require(:bookings).permit(:start_date, :end_date)
-  end
 
   def find_booking
     @booking = Booking.find(params[:id])

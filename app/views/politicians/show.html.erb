@@ -15,7 +15,7 @@
 
       <div class="col-sm-6">
 
-        <div class="card" style="height: 200px;">
+        <div class="card" style="height: 340px;">
           <div class="card-body">
             <h5 class="card-title; margin: 4px"><%= @politician.name %></h5>
             <div class="row" style="border-bottom: #BDBDBD solid 1px; border-top: #BDBDBD solid 1px; padding: 2px; margin: 4px">
@@ -32,13 +32,9 @@
               <%= f.input :end_date, html5: true %>
               <%= f.submit "Book now!", class: "btn", style: "background-color: #816F5D; color: #F7DCB9; margin: 4px" %>
             <% end %>
-            <%= button_to "Book now!", book_path(@politician.id), class: "btn", style: "background-color: #816F5D; color: #F7DCB9; margin: 4px" %>
           </div>
         </div>
-
       </div>
-
-
     </div>
 
     <div class="row">
