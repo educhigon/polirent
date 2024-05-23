@@ -1,7 +1,7 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon" style="background-color: #F7DCB9;">
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon" style="background-color: #F7DCB9; padding: 20px;">
   <div class="container-fluid d-flex justify-content-between mx-5 align-text-center">
     <%= link_to "/", class: "navbar-brand" do %>
-      <%= image_tag "Logo.png", :style => "width: 100px"  %>
+      <%= image_tag "Logo.png", :style => "width: 140px"  %>
     <% end %>
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -12,16 +12,16 @@
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
           <li class="nav-item active">
-            <%= link_to "Home", "/", class: "nav-link" %>
+            <%= link_to "Home   . ", "/", class: "nav-link" %>
           </li>
 
-          <li class="nav-item active">
+          <li class="nav-item active pt-2">
             <%= current_user.email %>
           </li>
 
           <li class="nav-item dropdown">
           <a href="#" class="avatar" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <%= image_tag "https://static.wixstatic.com/media/eaebf2_57eeed3c45e54dd493a1cc981df0aebb~mv2.jpg/v1/fill/w_720,h_492,al_c,lg_1,q_80/eaebf2_57eeed3c45e54dd493a1cc981df0aebb~mv2.jpg", class: "avatar", alt: "dropdown menu" %>
+            <%= image_tag "https://images.unsplash.com/photo-1633332755192-727a05c4013d?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8YXZhdGFyfGVufDB8fDB8fHww", class: "avatar", alt: "dropdown menu" %>
           </a>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
 

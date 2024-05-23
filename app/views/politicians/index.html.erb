@@ -1,15 +1,18 @@
 
-<div class="hero" style="background-image: asset-url('Room1.jpeg'); height: 300px; width: 100%; background-color: #343434"></div>
+<div class="hero image_rooms">
+  <P class="text-center font-weight-bold font-size-large">RENT YOUR POLITICIAN!</P>
+</div>
 <div class="container">
 
-  <h1 class="text-center">Rent your Politician!</h1>
-  <div class="cards d-flex flex-wrap">
+  <div class="cards row flex-wrap">
 
     <% @politicians.each do |poli| %>
-    <%= link_to politician_path(poli.id) do %>
+    <%= link_to politician_path(poli.id), class: 'text-decoration-none col-lg-6' do %>
       <%= render partial: 'politician', locals: { politician: poli } %>
     <% end %>
   <% end %>
 
   </div>
 </div>
+
+<!--d-flex flex-wrap-->
