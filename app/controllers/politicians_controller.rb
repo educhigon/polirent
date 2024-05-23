@@ -26,6 +26,7 @@ class PoliticiansController < ApplicationController
   end
 
   def show
+    @booking = Booking.new
   end
 
   def edit
@@ -61,7 +62,7 @@ class PoliticiansController < ApplicationController
   end
 
 private
-
+  
   def politician_params
     params.require(:politician).permit(:name, :location, :cost, :description, :photo)
   end
