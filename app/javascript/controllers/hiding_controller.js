@@ -9,14 +9,33 @@ export default class extends Controller {
 
   connect() {
     console.log("bonjour");
-    console.log(this.statusValue);
-    this.statusDisplayTarget.innerText = `status: ${this.statusValue}`
+    // console.log(this.statusValue);
+    if (this.statusValue != "pending") {
+      this.statusDisplayTarget.innerText = `${this.statusValue}`
+    }
   }
 
   toggleClass(event) {
     this.buttonDivTarget.classList.toggle("d-none")
-    const buttonText = event.currentTarget
-    this.statusValue = `${buttonText.innerText}ed`
-    this.statusDisplayTarget.innerText = `status: ${this.statusValue}`
+    const button = event.currentTarget
+    this.statusValue = `${button.innerText.toLowerCase()}ed`
+    console.log(this.statusValue);
+    if (this.statusValue != "pending") {
+      // console.log("hello");
+      this.statusDisplayTarget.innerText = `${this.statusValue}`
+    }
+
+
+
+    // if (this.statusValue != "pending") {
+    //   console.log(this.statusValue);
+    //   console.log("first if");
+    // }
+    // if (this.statusValue != "pending") {
+    //   console.log(this.statusValue);
+    //   console.log("second if");
+
+    //   this.statusDisplayTarget.innerText = `status: ${this.statusValue}`
+    // }
   }
 }
