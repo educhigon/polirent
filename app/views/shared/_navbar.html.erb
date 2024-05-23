@@ -11,13 +11,15 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
-          <li class="nav-item active">
-            <%= link_to "Home   . ", "/", class: "nav-link" %>
+        <div class="d-flex justify-content-between">
+          <li class="nav-item active mx-3">
+            <%= link_to "Home ", "/", class: "nav-link" %>
           </li>
 
           <li class="nav-item active pt-2">
             <%= current_user.email %>
           </li>
+        </div>
 
           <li class="nav-item dropdown">
           <a href="#" class="avatar" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

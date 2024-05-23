@@ -1,7 +1,7 @@
 class PoliticiansController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
   before_action :set_politician, only: [:show]
-  # before_action :new_politician, only: [:create, :edit]
+  before_action :new_politician, only: [:create]
 
 
   def index
@@ -26,6 +26,7 @@ class PoliticiansController < ApplicationController
   end
 
   def show
+    @booking = Booking.new
   end
 
   def edit
