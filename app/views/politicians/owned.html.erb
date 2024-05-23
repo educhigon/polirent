@@ -2,10 +2,10 @@
 
 
   <h1 class="text-center">My Politicians 🤝💸</h1>
-  <div class="cards d-flex flex-wrap">
+  <div class="cards row flex-wrap">
 
     <% @politicians.each do |poli| %>
-    <%= link_to politician_path(poli.id) do %>
+    <%= link_to politician_path(poli.id), class: 'text-decoration-none col-lg-6' do %>
       <%= render partial: 'politician', locals: { politician: poli } %>
     <% end %>
   <% end %>

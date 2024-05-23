@@ -8,18 +8,17 @@
         data: { turbo_method: :patch,
         action: "click->hiding#toggleClass",
         hiding_target: "button"},
-        class: "btn btn-secondary",
+        class: "poli_btn_green",
         style: "margin: 8px" %>
 
         <%= link_to "Reject", reject_path(booking.id), remote: true,
         data: { turbo_method: :patch,
         action: "click->hiding#toggleClass",
         hiding_target: "button" },
-        class: "btn btn-secondary",
+        class: "poli_btn_red",
         style: "margin: 8px" %>
 
       </div>
     </li>
   <% end %>
 </ul>
-    
