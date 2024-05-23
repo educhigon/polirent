@@ -7,6 +7,9 @@ Rails.application.routes.draw do
 
   resources :politicians
 
+  delete "politicians/:id", to: "politicians#destroy", as: :politician_destroy
+
+
   patch "bookings/:id/status_confirm", to: "bookings#status_confirm", as: :confirm
   patch "bookings/:id/status_reject", to: "bookings#status_reject", as: :reject
 

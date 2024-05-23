@@ -1,3 +1,4 @@
+<!--
 <div class="container mt-5">
   <h1>Edit politician</h1>
 
@@ -6,5 +7,12 @@
   <hr>
   <%= link_to politicians_path do %>
     <i class="fa-solid fa-arrow-rotate-left"></i> Back to list
+  <% end %>
+</div>
+-->
+
+<div class="container">
+  <% if @politician.user.id == current_user.id %>
+    <%= render "form", politician: @politician %>
   <% end %>
 </div>

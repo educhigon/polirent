@@ -30,9 +30,24 @@
               <div class="col-sm-4">
                 <p class="card-text"><%= @politician.cost %>€/night</p>
               </div>
-
             </div>
-            <%= button_to "Book now!", book_path(@politician.id), class: "poli_btn_primary", style: "background-color: #816F5D; color: #F7DCB9; margin: 4px" %>
+            <div style="display: flex">
+              <% unless @politician.user.id == current_user.id %>
+                <%= button_to "Book now!", book_path(@politician.id), class: "poli_btn_primary", style: "background-color: #816F5D; color: #F7DCB9; margin: 4px" %>
+              <% end %>
+
+              <% if @politician.user.id == current_user.id %>
+
+                <%= link_to "update this guy", edit_politician_path(@politician),
+                class: "btn", style: "background-color: #816F5D; color: #F7DCB9; margin: 4px" %>
+
+                <%= link_to "delete this guy",
+                politician_destroy_path(@politician),
+                data: {turbo_method: :delete, turbo_confirm: "Are you sure?"},
+                class: "btn", style: "background-color: #816F5D; color: #F7DCB9; margin: 4px" %>
+
+              <% end %>
+            </div>
           </div>
         </div>
 
@@ -49,15 +64,44 @@
 
   </div>
 </div>
+
+
 <!--
+
   <%= link_to politicians_path do %>
     <i class="fa-solid fa-arrow-rotate-left" style="margin: 8px"></i> Back to list
   <% end %>
--->
 
 
-<% if current_user%>
-  <% if @politician.user.id == current_user.id%>
+
+
+<% if @politician.user.id == current_user.id %>
   <%= render "bookinglist", bookings: @politician.bookings %>
-  <% end %>
 <% end %>
+
+
+
+<%# if owner display edit // destroy %>
+<% if @politician.user.id == current_user.id %>
+  <%= link_to "delete this guy",
+  politician_destroy_path(@politician),
+  data: {turbo_method: :delete, turbo_confirm: "Are you sure?"},
+  :class =>"btn btn-secondary" %>
+<% end %>
+
+<% if @politician.user.id == current_user.id %>
+  <%= render "form", politician: @politician %>
+<% end %>
+
+<%= link_to "update this guy", edit_politician_path(@politician) %>
+
+
+  <%# def create
+    @restaurant = Restaurant.new(restaurant_params)
+    if @restaurant.save
+      redirect_to restaurant_path(@restaurant)
+    else
+      render :new, status: 422
+    end
+  end %>
+-->
