@@ -10,16 +10,19 @@
       <% if booking.politician.image_url.present? %>
         <img src="<%= booking.politician.image_url %>" alt="<%= booking.politician.name %>" width="50" height="60">
       <% else %>
-        <%= cl_image_tag(booking.politician.photo.key, width: 50, height: 60, crop: :fill) %>
+        <% if booking.politician.photo.key.present?  %>
+          <%=  cl_image_tag(booking.politician.photo.key.present , width: 50, height: 60, crop: :fill) %>
+        <% else %>
+          <%= image_tag "Logo.png", :style => "width: 100%; height: 100%"  %>
+        <% end %>
       <% end %>
     </div>
 
 
     <div class="card-product-infos ">
-      <h2>Poli-name: <%= booking.politician.name %></h2>
-      <p>Description: <%= booking.politician.description[0..100] %></p>
+      <h2><%= booking.politician.name %></h2>
+      <p><%= booking.politician.description[0..100] %></p>
       <p>Location: <%= booking.politician.location %></p>
-      <p>User-mail: <%= booking.user.email %></p>
       <p>Status: <%= booking.status %></p>
       <br>
       <h5>Cost: <%= booking.politician.cost %> €/night</h5>
