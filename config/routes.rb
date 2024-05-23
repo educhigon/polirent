@@ -5,7 +5,11 @@ Rails.application.routes.draw do
   root to: "politicians#index"
   get "politicians/owned", to: "politicians#owned", as: :my_politicians
 
-  resources :politicians
+  resources :politicians do
+    collection do
+      get 'filter_by_tag'
+    end
+  end
 
   delete "politicians/:id", to: "politicians#destroy", as: :politician_destroy
 

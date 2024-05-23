@@ -15,6 +15,14 @@
       <%= submit_tag "Search", name: "", class: "btn btn-primary" %>
     <% end %>
   </div>
+<div class="col-sm-12 my-3">
+<%= simple_form_for @politician do |f| %>
+  <%= f.input :tags, collection: @roles, prompt: 'Select a role' %>
+  <%= f.button :submit %>
+<% end %>
+
+</div>
+
 </div>
 
   <div class="cards row flex-wrap">

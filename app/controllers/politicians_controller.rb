@@ -5,6 +5,8 @@ class PoliticiansController < ApplicationController
 
 
   def index
+    @politician = Politician.new
+    @roles = %w[sexy nice corrupt]
     if params[:query].present?
       @politicians = Politician.search(params[:query])
     else
@@ -17,9 +19,11 @@ class PoliticiansController < ApplicationController
   end
 
   def create
-    @politician.user_id = current_user.id
+    @politician = Politician.new(politician_params)
+    @politician.user = current_user
+
     if @politician.save
-      redirect_to politicians_path(@politician)
+      redirect_to politician_path(@politician), notice: 'Politician was successfully created.'
     else
       render :new, status: :unprocessable_entity
     end
@@ -63,7 +67,7 @@ class PoliticiansController < ApplicationController
 private
 
   def politician_params
-    params.require(:politician).permit(:name, :location, :cost, :description, :photo)
+    params.require(:politician).permit(:name, :location, :cost, :description, :photo, :tags)
   end
 
   def set_politician
