@@ -10,7 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema[7.1].define(version: 2024_05_23_153734) do
+=======
+ActiveRecord::Schema[7.1].define(version: 2024_05_23_103138) do
+>>>>>>> master
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -48,6 +52,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_23_153734) do
     t.integer "status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.date "start_date"
+    t.date "end_date"
     t.index ["politician_id"], name: "index_bookings_on_politician_id"
     t.index ["user_id"], name: "index_bookings_on_user_id"
   end

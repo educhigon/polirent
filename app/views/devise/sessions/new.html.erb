@@ -2,15 +2,14 @@
 <div class="container">
 
   <div class="login-card d-flex">
-    <div class="login-banner col-4 image_rooms"></div>
-    <div class="login-input col-8">
+    <div class="login-banner col-4 image_login"></div>
+    <div class="login-inputs col-8">
       <%= link_to "/", class: "navbar-brand" do %>
-        <%= image_tag "logo.png", :style => "width: 140px"  %>
+        <%= image_tag "logo.png", :style => "width: 140px; margin-bottom: 60px"  %>
       <% end %>
 
       <div class="head">
-        <h2>Log in</h2>
-        <%= render "devise/shared/links" %>
+        <h2 class="mt-30">Log in</h2>
       </div>
 
       <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
@@ -25,10 +24,17 @@
           <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
         </div>
 
+
         <div class="form-actions">
           <%= f.button :submit, "Log in", :class => 'poli_btn_primary' %>
         </div>
+
+        <div class="link-login d-flex">
+        <%= render "devise/shared/links" %>
+        </div>
+
       <% end %>
+
 
 
     </div>

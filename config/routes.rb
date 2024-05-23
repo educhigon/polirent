@@ -9,6 +9,7 @@ Rails.application.routes.draw do
     collection do
       get 'filter_by_tag'
     end
+    resources :bookings, only: [:create]
   end
 
   delete "politicians/:id", to: "politicians#destroy", as: :politician_destroy
