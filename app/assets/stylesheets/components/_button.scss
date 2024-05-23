@@ -67,3 +67,14 @@
     text-decoration: none;
     margin: 16px;
   }
+
+  .button-search{
+    border-radius: 0px 40px 40px 0px;
+    padding: 16px;
+    background-color: $cream_700;
+    width: 150px;
+    border: none;
+    &:hover{
+      background-color: $cream_500;
+    }
+   }
