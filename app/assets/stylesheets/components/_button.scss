@@ -3,7 +3,7 @@
     border: 0;
     color: #ffffff;
     font-weight: 500;
-    line-height: 1;
+    // line-height: 1;
     margin-top: 1.5rem;
     min-width: 300px;
     text-decoration: none;
@@ -19,7 +19,7 @@
     border: 2px solid $cream_700;
     color: $cream_700;
     font-weight: 500;
-    line-height: 1;
+    // line-height: 1;
     margin-top: 1.5rem;
     min-width: 300px;
     text-decoration: none;
@@ -35,7 +35,7 @@
     border: 0;
     color: #ffffff;
     font-weight: 500;
-    line-height: 1;
+    // line-height: 1;
     margin-top: 1.5rem;
     min-width: 100px;
     text-decoration: none;
@@ -51,7 +51,7 @@
     border: 0;
     color: $gray-800;
     font-weight: 500;
-    line-height: 1;
+    // line-height: 1;
     margin-top: 1.5rem;
     min-width: 100px;
     text-decoration: none;
@@ -60,4 +60,10 @@
     &:hover{
       background-color: #cad2b2;
     }
+  }
+
+  .link-login > a{
+    color: $cream_700;
+    text-decoration: none;
+    margin: 16px;
   }
