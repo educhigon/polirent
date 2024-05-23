@@ -12,7 +12,7 @@
     </div>
     <div class="card-product-infos">
       <% counts = politician.bookings.select { |book| book.status == "pending" }.count %>
-      <% if counts > 0 %>
+      <% if (counts > 0) and (request.env['PATH_INFO'] == "/politicians/owned")  %>
         <div class="booking_notification d-flex justify-content-center align-items-center">
           <%= counts %>
         </div>
