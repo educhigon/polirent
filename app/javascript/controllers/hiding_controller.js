@@ -10,21 +10,27 @@ export default class extends Controller {
   connect() {
     console.log("bonjour");
     // console.log(this.statusValue);
+
+
     if (this.statusValue != "pending") {
-      this.statusDisplayTarget.innerText = `${this.statusValue}`
+      this.statusValue = `${this.statusValue.toUpperCase()}`
+      this.statusDisplayTarget.innerHTML = `<p style="color:green">${this.statusValue}</p>`
+      if (this.statusValue === 'REJECTED') {
+        this.statusDisplayTarget.innerHTML = `<p style="color:red">${this.statusValue}</p>`
+      }
+      console.log(this.statusValue);
     }
   }
 
   toggleClass(event) {
-    this.buttonDivTarget.classList.toggle("d-none")
+    // this.buttonDivTarget.classList.toggle("d-none")
     const button = event.currentTarget
-    this.statusValue = `${button.innerText.toLowerCase()}ed`
-    console.log(this.statusValue);
-    if (this.statusValue != "pending") {
-      // console.log("hello");
-      this.statusDisplayTarget.innerText = `${this.statusValue}`
+    this.statusValue = `${button.innerText.toUpperCase()}ED`
+    this.buttonDivTarget.innerHTML = `<p style="color:green">${this.statusValue}</p>`
+    if (this.statusValue === 'REJECTED') {
+      this.buttonDivTarget.innerHTML = `<p style="color:red">${this.statusValue}</p>`
     }
-
+    console.log(this.statusValue);
 
 
     // if (this.statusValue != "pending") {

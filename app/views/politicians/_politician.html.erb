@@ -11,6 +11,12 @@
       <% end %>
     </div>
     <div class="card-product-infos">
+      <% counts = politician.bookings.select { |book| book.status == "pending" }.count %>
+      <% if counts > 0 %>
+        <div class="booking_notification d-flex justify-content-center align-items-center">
+          <%= counts %>
+        </div>
+      <% end %>
       <h2><%= politician.name %></h2>
       <hr class="hr-set">
       <p class="mt-3 mb-3"><%= politician.description[0..220] %></p>

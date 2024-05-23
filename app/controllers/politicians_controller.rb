@@ -62,7 +62,7 @@ class PoliticiansController < ApplicationController
   end
 
 private
-  
+
   def politician_params
     params.require(:politician).permit(:name, :location, :cost, :description, :photo)
   end
