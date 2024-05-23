@@ -6,7 +6,7 @@
         <% if politician.photo.key.present? %>
           <%=  cl_image_tag(politician.photo.key, width: 50, height: 60, crop: :fill) %>
         <% else %>
-          <%= image_tag "Logo.png", :style => "width: 100%; height: 100%"  %>
+          <%= image_tag "logo.png", :style => "width: 100%; height: 100%"  %>
         <% end %>
       <% end %>
     </div>

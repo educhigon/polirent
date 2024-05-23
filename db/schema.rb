@@ -10,7 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
+ActiveRecord::Schema[7.1].define(version: 2024_05_23_153734) do
+=======
 ActiveRecord::Schema[7.1].define(version: 2024_05_23_103138) do
+>>>>>>> master
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -72,7 +76,16 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_23_103138) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "image_url"
+    t.string "tags"
     t.index ["user_id"], name: "index_politicians_on_user_id"
+  end
+
+  create_table "tags", force: :cascade do |t|
+    t.string "name"
+    t.bigint "politician_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["politician_id"], name: "index_tags_on_politician_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -92,4 +105,5 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_23_103138) do
   add_foreign_key "bookings", "politicians"
   add_foreign_key "bookings", "users"
   add_foreign_key "politicians", "users"
+  add_foreign_key "tags", "politicians"
 end

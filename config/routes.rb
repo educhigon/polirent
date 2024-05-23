@@ -6,6 +6,9 @@ Rails.application.routes.draw do
   get "politicians/owned", to: "politicians#owned", as: :my_politicians
 
   resources :politicians do
+    collection do
+      get 'filter_by_tag'
+    end
     resources :bookings, only: [:create]
   end
 
