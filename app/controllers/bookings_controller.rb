@@ -17,12 +17,14 @@ class BookingsController < ApplicationController
   # end
 
   def create
-    poli_id = params[:id]
+    @politician = Politician.find(params[:id])
+    poli_id = params[:politician_id]
     user_id = current_user.id
     # status = 0
-    attributes = { politician_id: poli_id, user_id: user_id}
-    booking = Booking.new(attributes)
-
+    booking = Booking.new(booking_params)
+    booking.user = Booking.current_user.id
+    booking.politician = @politician
+    raise
     if booking.save
       # redirect_to politician_path(poli_id), notice: "Booking created"
       redirect_to bookings_my_bookings_path, notice: "Booking created"
@@ -47,7 +49,7 @@ class BookingsController < ApplicationController
   private
 
   def booking_params
-    # dont need this? only params[:id] everything else is given
+    params.require(:bookings).permit(:start_date, :end_date)
   end
 
   def find_booking

@@ -5,7 +5,9 @@ Rails.application.routes.draw do
   root to: "politicians#index"
   get "politicians/owned", to: "politicians#owned", as: :my_politicians
 
-  resources :politicians
+  resources :politicians do
+    resources :bookings, only: [:create]
+  end
 
   patch "bookings/:id/status_confirm", to: "bookings#status_confirm", as: :confirm
   patch "bookings/:id/status_reject", to: "bookings#status_reject", as: :reject
