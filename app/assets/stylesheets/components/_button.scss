@@ -1,0 +1,63 @@
+.poli_btn_primary{
+    background-color: $cream_700;
+    border: 0;
+    color: #ffffff;
+    font-weight: 500;
+    line-height: 1;
+    margin-top: 1.5rem;
+    min-width: 300px;
+    text-decoration: none;
+    padding: 8px 150px;
+    border-radius: 25px;
+    &:hover{
+      background-color: $cream_500;
+    }
+  }
+
+  .poli_btn_secondary{
+    background-color: transparent;
+    border: 2px solid $cream_700;
+    color: $cream_700;
+    font-weight: 500;
+    line-height: 1;
+    margin-top: 1.5rem;
+    min-width: 300px;
+    text-decoration: none;
+    padding: 8px 150px;
+    border-radius: 25px;
+    &:hover{
+      background-color: $cream_100;
+    }
+  }
+
+  .poli_btn_red{
+    background-color: #D31638;
+    border: 0;
+    color: #ffffff;
+    font-weight: 500;
+    line-height: 1;
+    margin-top: 1.5rem;
+    min-width: 300px;
+    text-decoration: none;
+    padding: 8px 150px;
+    border-radius: 25px;
+    &:hover{
+      background-color: #fe4164;
+    }
+  }
+
+  .poli_btn_green{
+    background-color: $poli_green;
+    border: 0;
+    color: $gray-800;
+    font-weight: 500;
+    line-height: 1;
+    margin-top: 1.5rem;
+    min-width: 300px;
+    text-decoration: none;
+    padding: 8px 150px;
+    border-radius: 25px;
+    &:hover{
+      background-color: #cad2b2;
+    }
+  }

@@ -1,13 +1,12 @@
 class PoliticiansController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
   before_action :set_politician, only: [:show]
-  before_action :new_politician, only: [:create, :edit]
+  # before_action :new_politician, only: [:create, :edit]
 
 
   def index
     if params[:query].present?
-      @query = params[:query]
-      @politicians = Politician.where("name LIKE ?", "%#{params[:query]}%")
+      @politicians = Politician.search(params[:query])
     else
       @politicians = Politician.all
     end
@@ -31,19 +30,31 @@ class PoliticiansController < ApplicationController
   end
 
   def edit
+    # raise
+    @politician = Politician.find(params[:id])
   end
 
   def update
+    # raise
+    @politician = Politician.find(params[:id])
     if @politician.update(politician_params)
       redirect_to politician_path(@politician)
     else
-      render :new, status: :unprocessable_entity
+      render :new, status: 422
     end
+    # if @politician.update(politician_params)
+    #   redirect_to politician_path(@politician)
+    # else
+    #   render :new, status: :unprocessable_entity
+    # end
   end
 
   def destroy
+    @politician = Politician.find(params[:id])
     @politician.destroy
-    redirect_to politician_path, status: :see_other
+    redirect_to my_politicians_path
+    # success?
+    # redirect_to politician_path, status: :see_other
   end
 
   def owned
@@ -51,10 +62,10 @@ class PoliticiansController < ApplicationController
   end
 
 private
-
-def politician_params
-  params.require(:politician).permit(:name, :location, :cost, :description, :photo)
-end
+  
+  def politician_params
+    params.require(:politician).permit(:name, :location, :cost, :description, :photo)
+  end
 
   def set_politician
     @politician = Politician.find(params[:id])

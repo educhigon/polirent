@@ -11,10 +11,20 @@
   </head>
 
   <body>
+     <div class="wrapper">
     <%= render "shared/navbar" %>
+      <% if notice %>
+        <div class="alert alert-info" role="alert">
+          <%= notice %>
+        </div>
+      <% end %>
+      <% if alert %>
+        <div class="alert alert-danger" role="alert">
+          <%= alert %>
+        </div>
+      <% end %>
       <%= yield %>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
     <%= render 'shared/footer' %>
-  </body>
+  </div></body>
 </html>
+

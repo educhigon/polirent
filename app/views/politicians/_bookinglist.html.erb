@@ -1,25 +1,30 @@
-<ul>
+<div class="container">
   <% bookings.each do |booking| %>
-    <li data-controller="hiding" data-hiding-status-value="<%= booking.status %>">
-      <p data-hiding-target="statusDisplay"></p>
-      <div data-hiding-target="buttonDiv">
+    <div class="card" data-controller="hiding" data-hiding-status-value="<%= booking.status %>">
+      <div style="display: flex; justify-content: space-between;">
+        <p><%= booking.user.email %></p>
+        <p data-hiding-target="statusDisplay"></p>
+        <% if booking.status == "pending" %>
+          <div data-hiding-target="buttonDiv">
 
         <%= link_to "Confirm", confirm_path(booking.id), remote: true,
         data: { turbo_method: :patch,
         action: "click->hiding#toggleClass",
         hiding_target: "button"},
-        class: "btn btn-secondary",
+        class: "poli_btn_green",
         style: "margin: 8px" %>
 
         <%= link_to "Reject", reject_path(booking.id), remote: true,
         data: { turbo_method: :patch,
         action: "click->hiding#toggleClass",
         hiding_target: "button" },
-        class: "btn btn-secondary",
+        class: "poli_btn_red",
         style: "margin: 8px" %>
 
+          </div>
+        <% end %>
       </div>
-    </li>
+
+    </div>
   <% end %>
-</ul>
-    
+</div>
