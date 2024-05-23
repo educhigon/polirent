@@ -10,6 +10,7 @@
   </head>
 
   <body>
+     <div class="wrapper">
     <%= render "shared/navbar" %>
       <% if notice %>
         <div class="alert alert-info" role="alert">
@@ -23,5 +24,6 @@
       <% end %>
       <%= yield %>
     <%= render 'shared/footer' %>
-  </body>
+  </div></body>
 </html>
+
