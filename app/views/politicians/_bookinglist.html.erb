@@ -3,7 +3,13 @@
     <div class="border_card small_card my-2" data-controller="hiding" data-hiding-status-value="<%= booking.status %>">
       <div class="d-flex align-middle justify-content-between px-5">
         <div>
-          <p><%= booking.user.email %></p>
+          <p><%= booking.user.name %></p>
+        </div>
+        <div>
+          <% date1 = booking.start_date.strftime("%d. %B %Y")%>
+          <% date2 = booking.end_date.strftime("%d. %B %Y")%>
+
+          <p><%= date1 %> - <%= date2 %></p>
         </div>
         <% if booking.status == "pending" %>
           <div class="d-flex align-middle" data-hiding-target="buttonDiv">
@@ -30,4 +36,3 @@
 
     </div>
   <% end %>
-</div>
