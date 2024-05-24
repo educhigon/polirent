@@ -171,6 +171,7 @@ users.each do |user|
   end
 end
 
+p "Database has:"
 p "users: #{User.count}"
 p "polis: #{Politician.count}"
 p "bookings: #{Booking.count}"
