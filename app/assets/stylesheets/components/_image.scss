@@ -25,3 +25,16 @@
   padding-top: 150px;
   margin: 80px 0px
 }
+
+.image-show {
+  width: 450px; /* Fixed width */
+  height: 450px; /* Fixed height */
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center; /* Hide overflow if image is larger */
+  img{
+   height: 100%;
+  }
+  // position: relative;
+}
