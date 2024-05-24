@@ -2,8 +2,7 @@
   <div class="container m-10" style="width: 800; padding: 16px">
     <div class="row">
 
-      <div class="col-sm-6">
-
+      <div class="col-sm-6"> <!-- LEFT CARD: politician image -->
         <div class="card">
           <% if @politician.image_url.present? %>
             <img src="<%= @politician.image_url %>" alt="<%= @politician.name %>" width="50" height="60">
@@ -17,58 +16,62 @@
         </div>
       </div>
 
-      <div class="col-sm-6">
-
+      <div class="col-sm-6"> <!-- RIGHT CARD: col_1: name;; col_2: location, price, etc;; col_3: buttons (either 'book now' or 'edit+destroy') -->
         <div class="card" style="height: 340px;">
           <div class="card-body">
             <h5 class="card-title; margin: 4px"><%= @politician.name %></h5>
               <div class="row" style="border-bottom: #BDBDBD solid 1px; border-top: #BDBDBD solid 1px; padding: 2px; margin: 4px">
-                            <div class="col-sm-4">
-                              <p class="card-text"><%= @politician.location %></p>
-                            </div>
-                            <div class="col-sm-4">
-                              <strong>Tags:</strong>
-                                  <%= @politician.tags %>
-                            </div>
-                            <div class="col-sm-4"></div>
-                            <div class="col-sm-4">
-                              <p class="card-text"><%= @politician.cost %>€/night</p>
-                            </div>
-              </div>
+                <div class="col-sm-4">
+                  <p class="card-text"><%= @politician.location %></p>
+                </div>
+                <div class="col-sm-4">
+                  <strong>Tags:</strong>
+                      <%= @politician.tags %>
+                </div>
+                <div class="col-sm-4"></div>
+                  <div class="col-sm-4">
+                    <p class="card-text"><%= @politician.cost %> €/night</p>
+                  </div>
+                </div>
 
+                <div id="buttons_of_poli_show" style="display: flex">
+                  <% if current_user %>
+                    <% unless @politician.user.id == current_user.id %>
+                      <button type="button" class="poli_btn_primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        Book now!
+                      </button>
+                      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h1 class="modal-title fs-5" id="exampleModalLabel">Select the dates you want to book</h1>
+                            </div>
+                            <div class="modal-body">
+                              <%= simple_form_for [@politician, @booking] do |f| %>
+                                <%= f.input :start_date, html5: true %>
+                                <%= f.input :end_date, html5: true %>
+                                <%= f.submit "Book now!", class: "poli_btn_primary" %>
+                              <% end %>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    <% end %>
 
-            <%# <div > %>
-  <div id="buttons_of_poli_show" style="display: flex">
-              <% if current_user %>
-                <% unless @politician.user.id == current_user.id %>
-
-                  <%= simple_form_for [@politician, @booking] do |f| %>
-                    <%= f.input :start_date, html5: true %>
-                    <%= f.input :end_date, html5: true %>
-                    <%= f.submit "jeremy Book now!", class: "btn", style: "background-color: #816F5D; color: #F7DCB9; margin: 4px" %>
+                    <% if @politician.user.id == current_user.id %>
+                      <div>
+                        <%= link_to "update this guy", edit_politician_path(@politician),
+                        class: "btn", style: "background-color: #816F5D; color: #F7DCB9; margin: 4px" %>
+                        <%= link_to "delete this guy",
+                        politician_destroy_path(@politician),
+                        data: {turbo_method: :delete, turbo_confirm: "Are you sure?"},
+                        class: "btn", style: "background-color: #816F5D; color: #F7DCB9; margin: 4px" %>
+                      </div>
+                    <% end %>
                   <% end %>
-                  <!--
-                  <%= button_to "bruno Book now!", book_path(@politician.id), class: "poli_btn_primary", style: "background-color: #816F5D; color: #F7DCB9; margin: 4px" %>
-                  -->
-                <% end %>
-
-                <% if @politician.user.id == current_user.id %>
-
-                  <%= link_to "update this guy", edit_politician_path(@politician),
-                  class: "btn", style: "background-color: #816F5D; color: #F7DCB9; margin: 4px" %>
-
-                  <%= link_to "delete this guy",
-                  politician_destroy_path(@politician),
-                  data: {turbo_method: :delete, turbo_confirm: "Are you sure?"},
-                  class: "btn", style: "background-color: #816F5D; color: #F7DCB9; margin: 4px" %>
-
-                <% end %>
-              <% end %>
-  </div>
-
+                </div>
               </div>
             </div>
-
           </div>
         </div>
       </div>
@@ -77,54 +80,12 @@
     <div class="row">
       <p style="margin: 16px"><%= @politician.description %></p>
     </div>
-    <div id="rendering_bookings_if_owner">
-    <% if current_user %>
-
-      <% if @politician.user.id == current_user.id %>
-        <%= render "bookinglist", bookings: @politician.bookings %>
+    <div> <!-- rendering all bookings of current politician if you are the owner -->
+      <% if current_user %>
+        <% if @politician.user.id == current_user.id %>
+          <%= render "bookinglist", bookings: @politician.bookings %>
+        <% end %>
       <% end %>
-    <% end %>
     </div>
-
-  </div>
-</div>
-<div>
-<!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
-  Launch demo modal
-</button>
-
-<!-- Modal -->
-<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        ...
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
-    </div>
-  </div>
-</div>
-
-</div>
-
-
-<div class="dropdown">
-  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    Dropdown button
-  </button>
-  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-    <a class="dropdown-item" href="#">Action</a>
-    <a class="dropdown-item" href="#">Another action</a>
-    <a class="dropdown-item" href="#">Something else here</a>
   </div>
 </div>
