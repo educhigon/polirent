@@ -1,0 +1,9 @@
+  <% if politician.image_url.present? %>
+          <img class="avatar-bordered" src="<%= politician.image_url %>" alt="<%= politician.name %>">
+  <% else %>
+    <% if politician.photo.key.present? %>
+      <%=  cl_image_tag(politician.photo.key, crop: :fill) %>
+    <% else %>
+      <%= image_tag "Img-replace.jpg"%>
+    <% end %>
+  <% end %>

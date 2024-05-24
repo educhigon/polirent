@@ -3,21 +3,30 @@
 <h1 class="text-center">MY BOOKING PAGE</h1>
 
 
-<div class="d-flex flex-wrap">
+ <div class="cards row flex-wrap">
   <% @bookings.each do |booking| %>
   <div class="card-product border">
-    <div class="image_rooms">
-      <%= render partial: 'politicians/image_handling', locals: { politician: booking.politician } %>
+    <div class="image_my_bookings">
+      <%= render partial: 'politicians/image_handling_2', locals: { politician: booking.politician } %>
     </div>
 
 
     <div class="card-product-infos ">
       <h2><%= booking.politician.name %></h2>
-      <p><%= booking.politician.description[0..100] %></p>
+      <p><%= booking.politician.description[0..100]... %></p>
       <p>Location: <%= booking.politician.location %></p>
-      <p>Status: <%= booking.status %></p>
+      <p>Date: <%= booking.start_date %> - <%= booking.end_date %></p>
       <br>
-      <h5>Cost: <%= booking.politician.cost %> €/night</h5>
+      <div class="d-flex justify-content-between">
+        <h5>Cost: <%= booking.politician.cost %> €/night</h5>
+        <% if booking.status.upcase == "PENDING" %>
+          <h6 style="color:orange"><strong><%= booking.status.upcase %></strong></h6>
+        <% elsif booking.status.upcase == "REJECTED" %>
+          <h6 style="color:red"><strong><%= booking.status.upcase %></strong></h6>
+        <% else %>
+          <h6 style="color:green"><strong><%= booking.status.upcase %></strong></h6>
+        <% end %>
+      </div>
     </div>
   </div>
   <% end %>
