@@ -9,19 +9,21 @@
       </div>
 
       <div class="col-sm-6"> <!-- RIGHT CARD: col_1: name;; col_2: location, price, etc;; col_3: buttons (either 'book now' or 'edit+destroy') -->
-        <div class="card" style="height: 340px;">
+        <div class="card border_card">
           <div class="card-body">
+
             <h5 class="card-title; margin: 4px"><%= @politician.name %></h5>
 
               <div class="row" style="border-bottom: #BDBDBD solid 1px; border-top: #BDBDBD solid 1px; padding: 2px; margin: 4px">
                 <div class="col-sm-4">
+
                   <p class="card-text"><%= @politician.location %></p>
                 </div>
-                <div class="col-sm-4">
+                <div class="col-sm-4" style="padding-top: 8px">
                   <strong>Tags:</strong>
                       <%= @politician.tags %>
                 </div>
-                <div class="col-sm-4"></div>
+                <div class="col-sm-4" ></div>
                   <div class="col-sm-4">
                     <p class="card-text"><%= @politician.cost %> €/night</p>
                   </div>
@@ -69,11 +71,11 @@
           </div>
         </div>
       </div>
-    </div>
-
     <div class="row">
       <p style="margin: 16px"><%= @politician.description %></p>
     </div>
+    </div>
+
     <div> <!-- rendering all bookings of current politician if you are the owner -->
       <% if current_user %>
         <% if @politician.user.id == current_user.id %>
