@@ -11,7 +11,7 @@
         <img src="<%= booking.politician.image_url %>" alt="<%= booking.politician.name %>" width="50" height="60">
       <% else %>
         <% if booking.politician.photo.key.present?  %>
-          <%=  cl_image_tag(booking.politician.photo.key.present , width: 50, height: 60, crop: :fill) %>
+          <%=  cl_image_tag(booking.politician.photo.key , width: 50, height: 60, crop: :fill) %>
         <% else %>
           <%= image_tag "Logo.png", :style => "width: 100%; height: 100%"  %>
         <% end %>

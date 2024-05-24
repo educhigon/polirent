@@ -22,31 +22,34 @@
         <div class="card" style="height: 340px;">
           <div class="card-body">
             <h5 class="card-title; margin: 4px"><%= @politician.name %></h5>
-            <div class="row" style="border-bottom: #BDBDBD solid 1px; border-top: #BDBDBD solid 1px; padding: 2px; margin: 4px">
-              <div class="col-sm-4">
-                <p class="card-text"><%= @politician.location %></p>
-              </div>
-              <div class="col-sm-4">
-                 <strong>Tags:</strong>
-                    <%= @politician.tags %>
-              </div>
-              <div class="col-sm-4"></div>
-              <div class="col-sm-4">
-                <p class="card-text"><%= @politician.cost %>€/night</p>
+              <div class="row" style="border-bottom: #BDBDBD solid 1px; border-top: #BDBDBD solid 1px; padding: 2px; margin: 4px">
+                            <div class="col-sm-4">
+                              <p class="card-text"><%= @politician.location %></p>
+                            </div>
+                            <div class="col-sm-4">
+                              <strong>Tags:</strong>
+                                  <%= @politician.tags %>
+                            </div>
+                            <div class="col-sm-4"></div>
+                            <div class="col-sm-4">
+                              <p class="card-text"><%= @politician.cost %>€/night</p>
+                            </div>
               </div>
 
-              </div>
-            <%= simple_form_for [@politician, @booking] do |f| %>
-              <%= f.input :start_date, html5: true %>
-              <%= f.input :end_date, html5: true %>
-              <%= f.submit "Book now!", class: "btn", style: "background-color: #816F5D; color: #F7DCB9; margin: 4px" %>
-            <% end %>
-              </div>
-            
-            <div style="display: flex">
+
+            <%# <div > %>
+  <div id="buttons_of_poli_show" style="display: flex">
               <% if current_user %>
                 <% unless @politician.user.id == current_user.id %>
-                  <%= button_to "Book now!", book_path(@politician.id), class: "poli_btn_primary", style: "background-color: #816F5D; color: #F7DCB9; margin: 4px" %>
+
+                  <%= simple_form_for [@politician, @booking] do |f| %>
+                    <%= f.input :start_date, html5: true %>
+                    <%= f.input :end_date, html5: true %>
+                    <%= f.submit "jeremy Book now!", class: "btn", style: "background-color: #816F5D; color: #F7DCB9; margin: 4px" %>
+                  <% end %>
+                  <!--
+                  <%= button_to "bruno Book now!", book_path(@politician.id), class: "poli_btn_primary", style: "background-color: #816F5D; color: #F7DCB9; margin: 4px" %>
+                  -->
                 <% end %>
 
                 <% if @politician.user.id == current_user.id %>
@@ -61,6 +64,9 @@
 
                 <% end %>
               <% end %>
+  </div>
+
+              </div>
             </div>
 
           </div>
@@ -69,11 +75,9 @@
     </div>
 
     <div class="row">
-
-    <p style="margin: 16px"><%= @politician.description %></p>
-
+      <p style="margin: 16px"><%= @politician.description %></p>
     </div>
-    <div>
+    <div id="rendering_bookings_if_owner">
     <% if current_user %>
 
       <% if @politician.user.id == current_user.id %>
@@ -82,5 +86,45 @@
     <% end %>
     </div>
 
+  </div>
+</div>
+<div>
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+  Launch demo modal
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div>
+
+
+<div class="dropdown">
+  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Dropdown button
+  </button>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    <a class="dropdown-item" href="#">Action</a>
+    <a class="dropdown-item" href="#">Another action</a>
+    <a class="dropdown-item" href="#">Something else here</a>
   </div>
 </div>
