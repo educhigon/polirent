@@ -9,12 +9,20 @@
     <%= form_with url: politicians_path, method: :get, class: "d-flex" do %>
       <%= text_field_tag :query,
             params[:query],
-            class: "form-control",
+            class: "form-control input-box-search",
             placeholder: "Type a keyword"
         %>
-      <%= submit_tag "Search", name: "", class: "btn btn-primary" %>
+      <%= submit_tag "Search", name: "", class: "btn btn-primary search-btn button-search" %>
     <% end %>
   </div>
+<div class="col-sm-12 my-3">
+<%= simple_form_for @politician do |f| %>
+  <%= f.input :tags, collection: @roles, prompt: 'Select a role' %>
+  <%= f.button :submit %>
+<% end %>
+
+</div>
+
 </div>
 
   <div class="cards row flex-wrap">

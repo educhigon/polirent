@@ -13,3 +13,17 @@
   font-size: xx-large;
   color: purple;
 }
+
+.booking_notification {
+  position: absolute;
+  height: 30px;
+  width: 30px;
+  // bottom: 16px;
+  // right: 160px;
+  z-index: 1000;
+  border-radius: 50%;
+  background-color: rgb(102, 2, 55);
+  color: white;
+  top: 0px;
+  right: 0px;
+}

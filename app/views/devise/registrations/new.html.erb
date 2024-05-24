@@ -1,16 +1,14 @@
 <div class="container">
 
   <div class="login-card d-flex">
-    <div class="login-banner col-4 image_rooms"></div>
-    <div class="login-input col-8">
+    <div class="login-banner col-4 image_login"></div>
+    <div class="login-inputs col-8">
       <%= link_to "/", class: "navbar-brand" do %>
-        <%= image_tag "Logo.png", :style => "width: 140px"  %>
+        <%= image_tag "logo.png", :style => "width: 140px; margin-bottom: 60px"  %>
       <% end %>
 
       <div class="head">
         <h2>Sign up</h2>
-        <%= render "devise/shared/links" %>
-
       </div>
 
 
@@ -31,11 +29,17 @@
                       required: true,
                       input_html: { autocomplete: "new-password" } %>
         </div>
+        <div class="link-login">
+        <%= render "devise/shared/links" %>
+        </div>
 
         <div class="form-actions">
-          <%= f.button :submit, "Sign up" %>
+          <%= f.button :submit, "Sign up", :class => 'poli_btn_primary' %>
         </div>
+
+
       <% end %>
+
 
     </div>
   </div>

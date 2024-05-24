@@ -3,7 +3,7 @@
     border: 0;
     color: #ffffff;
     font-weight: 500;
-    line-height: 1;
+    // line-height: 1;
     margin-top: 1.5rem;
     min-width: 300px;
     text-decoration: none;
@@ -19,7 +19,7 @@
     border: 2px solid $cream_700;
     color: $cream_700;
     font-weight: 500;
-    line-height: 1;
+    // line-height: 1;
     margin-top: 1.5rem;
     min-width: 300px;
     text-decoration: none;
@@ -35,11 +35,11 @@
     border: 0;
     color: #ffffff;
     font-weight: 500;
-    line-height: 1;
+    // line-height: 1;
     margin-top: 1.5rem;
-    min-width: 300px;
+    min-width: 100px;
     text-decoration: none;
-    padding: 8px 150px;
+    padding: 8px 50px;
     border-radius: 25px;
     &:hover{
       background-color: #fe4164;
@@ -51,13 +51,30 @@
     border: 0;
     color: $gray-800;
     font-weight: 500;
-    line-height: 1;
+    // line-height: 1;
     margin-top: 1.5rem;
-    min-width: 300px;
+    min-width: 100px;
     text-decoration: none;
-    padding: 8px 150px;
+    padding: 8px 50px;
     border-radius: 25px;
     &:hover{
       background-color: #cad2b2;
     }
   }
+
+  .link-login > a{
+    color: $cream_700;
+    text-decoration: none;
+    margin: 16px;
+  }
+
+  .button-search{
+    border-radius: 0px 40px 40px 0px;
+    padding: 16px;
+    background-color: $cream_700;
+    width: 150px;
+    border: none;
+    &:hover{
+      background-color: $cream_500;
+    }
+   }
