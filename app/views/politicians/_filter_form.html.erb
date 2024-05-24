@@ -1,0 +1,20 @@
+
+<%= form_with url: politicians_path, method: :get, local: true, class: "form-inline d-flex justify-content-between" do %>
+  <div class="row">
+    <div class="col-4">
+      <%= text_field_tag :query, params[:query], class: "form-control-lg input-box-search", placeholder: "Search for..." %>
+    </div>
+
+    <div class="col-4">
+      <%= select_tag :tag, options_for_select([['Select a tag', nil], ['Left', 'left'], ['Right', 'right'], ['Center', 'center'], ['Sexy', 'sexy'], ['Corrupt', 'corrupt']], selected: params[:tag]), class: "form-control-lg input-box-search" %>
+    </div>
+
+    <div class="col-2">
+      <%= submit_tag 'Filter', class: "btn btn-primary search-btn button-search" %>
+    </div>
+
+    <div class="col-2">
+      <%= link_to 'Reset', politicians_path, class: "btn btn-primary search-btn button-search" %>
+    </div>
+  </div>
+<% end %>

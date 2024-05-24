@@ -3,37 +3,19 @@
   <P class="text-center font-weight-bold font-size-large">RENT YOUR POLITICIAN!</P>
 </div>
 <div class="container">
-
-<div class="row justify-content-center">
-  <div class="col-sm-12 my-3">
-    <%= form_with url: politicians_path, method: :get, class: "d-flex" do %>
-      <%= text_field_tag :query,
-            params[:query],
-            class: "form-control input-box-search",
-            placeholder: "Type a keyword"
-        %>
-      <%= submit_tag "Search", name: "", class: "btn btn-primary search-btn button-search" %>
-    <% end %>
-  </div>
-<div class="col-sm-12 my-3">
-<%= simple_form_for @politician do |f| %>
-  <%= f.input :tags, collection: @roles, prompt: 'Select a role' %>
-  <%= f.button :submit %>
-<% end %>
-
+<div class="container">
+  <%= render 'filter_form' %>
 </div>
 
-</div>
+<div class="cards row flex-wrap">
 
-  <div class="cards row flex-wrap">
-
-    <% @politicians.each do |poli| %>
-    <%= link_to politician_path(poli.id), class: 'text-decoration-none col-lg-6' do %>
-      <%= render partial: 'politician', locals: { politician: poli } %>
+  <% @politicians.each do |poli| %>
+  <%= link_to politician_path(poli.id), class: 'text-decoration-none col-lg-6' do %>
+    <%= render partial: 'politician', locals: { politician: poli } %>
     <% end %>
   <% end %>
 
-  </div>
+</div>
 </div>
 
 

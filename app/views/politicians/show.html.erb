@@ -11,9 +11,12 @@
       <div class="col-sm-6"> <!-- RIGHT CARD: col_1: name;; col_2: location, price, etc;; col_3: buttons (either 'book now' or 'edit+destroy') -->
         <div class="card border_card">
           <div class="card-body">
-            <h5 class="card-title title_card_poli"><%= @politician.name %></h5>
-              <div class="row" style="border-bottom: #BDBDBD solid 1px; padding: 2px; margin: 16px 0px 8px 0px">
-                <div class="col-sm-4 d-flex">
+
+            <h5 class="card-title; margin: 4px"><%= @politician.name %></h5>
+
+              <div class="row" style="border-bottom: #BDBDBD solid 1px; border-top: #BDBDBD solid 1px; padding: 2px; margin: 4px">
+                <div class="col-sm-4">
+
                   <p class="card-text"><%= @politician.location %></p>
                 </div>
                 <div class="col-sm-4" style="padding-top: 8px">
@@ -25,6 +28,7 @@
                     <p class="card-text"><%= @politician.cost %> €/night</p>
                   </div>
                 </div>
+
 
                 <div id="buttons_of_poli_show" style="display: flex">
                   <% if current_user %>
