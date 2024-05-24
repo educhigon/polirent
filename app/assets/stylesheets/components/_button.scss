@@ -69,10 +69,11 @@
   }
 
   .button-search{
-    border-radius: 0px 40px 40px 0px;
+    // border-radius: 0px 40px 40px 0px;
     padding: 16px;
     background-color: $cream_700;
     width: 150px;
+    height: 64px;
     border: none;
     &:hover{
       background-color: $cream_500;
