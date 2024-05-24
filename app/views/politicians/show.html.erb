@@ -4,15 +4,7 @@
 
       <div class="col-sm-6"> <!-- LEFT CARD: politician image -->
         <div class="card">
-          <% if @politician.image_url.present? %>
-            <img src="<%= @politician.image_url %>" alt="<%= @politician.name %>" width="50" height="60">
-          <% else %>
-            <% if @politician.photo.key.present? %>
-              <%=  cl_image_tag(@politician.photo.key, width: 200, height: 200, crop: :fill) %>
-            <% else %>
-              <%= image_tag "logo.png", :style => "width: 100%; height: 100%"  %>
-            <% end %>
-          <% end %>
+          <%= render partial: 'image_handling', locals: { politician: @politician } %>
         </div>
       </div>
 
