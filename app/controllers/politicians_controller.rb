@@ -6,9 +6,14 @@ class PoliticiansController < ApplicationController
 
   def index
     @politician = Politician.new
-    @roles = %w[sexy nice corrupt]
-    if params[:query].present?
+    @roles = %w[left right center sexy corrupt]
+
+    if params[:query].present? && params[:tag].present?
+      @politicians = Politician.search(params[:query]).where(tags: params[:tag])
+    elsif params[:query].present?
       @politicians = Politician.search(params[:query])
+    elsif params[:tag].present?
+      @politicians = Politician.where(tags: params[:tag])
     else
       @politicians = Politician.all
     end
