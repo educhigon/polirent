@@ -20,11 +20,11 @@
       <div class="d-flex justify-content-between">
         <h5>Cost: <%= booking.politician.cost %> €/night</h5>
         <% if booking.status.upcase == "PENDING" %>
-          <h6 style="color:orange"><strong><%= booking.status.upcase %></strong></h6>
+          <p style="color:orange; font-size:20px"><%= booking.status.upcase %></p>
         <% elsif booking.status.upcase == "REJECTED" %>
-          <h6 style="color:red"><strong><%= booking.status.upcase %></strong></h6>
+          <p style="color:red; font-size:20px"><%= booking.status.upcase %></p>
         <% else %>
-          <h6 style="color:green"><strong><%= booking.status.upcase %></strong></h6>
+          <p style="color:green; font-size:20px"><%= booking.status.upcase %></p>
         <% end %>
       </div>
     </div>
