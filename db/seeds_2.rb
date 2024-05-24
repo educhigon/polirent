@@ -4,14 +4,72 @@ Booking.destroy_all
 Politician.destroy_all
 User.destroy_all
 
-a = User.create!(name: bob, email: "bobusa@gmail.com", password: "password")
-b = User.create(email: "aliceeu@gmail.com", password: "password")
-c = User.create(email: "frankworld@gmail.com", password: "password")
+a = User.create!(name: "Bob", email: "bobusa@gmail.com", password: "password")
+b = User.create(name: "Alice", email: "aliceeu@gmail.com", password: "password")
+c = User.create(name: "Frank", email: "frankfromjapan@gmail.com", password: "password")
 
-d = User.create(email: "derekright@gmail.com", password: "password")
-e = User.create(email: "enzoleft@gmail.com", password: "password")
+users = [a, b, c]
 
+image_urls = {
+  alexander_the_great: {
+    p: "https://i.pinimg.com/originals/5c/54/0d/5c540dbb2dd31898b0d0926dd3e20b05.jpg"
+  },
+  cleopatra: {
+    p:"https://www.creativefabrica.com/wp-content/uploads/2022/10/06/Realistic-Portrait-Of-Cleopatra-40463853-1.png"
+  },
+  sexy_biden_img: {
+    p: "https://upload.wikimedia.org/wikipedia/commons/6/68/Joe_Biden_presidential_portrait.jpg",
+    one: "https://pbs.twimg.com/media/CaL8zrtUsAEJRvJ.jpg:large",
+    two: "https://a.abcnews.com/images/Politics/ap_joe_biden_ice_cream_03_jc_141009_4x3_992.jpg"
+  },
+  confused_biden: {
+    p: "https://mediaproxy.salon.com/width/1200/https://media.salon.com/2019/08/confused-biden.jpg"
+  },
+  napoleon_img: {
+    p: "https://upload.wikimedia.org/wikipedia/commons/4/46/Ch%C3%A2teau_de_Chantilly%2C_Fran%C3%A7ois_G%C3%A9rard%2C_portrait_of_Napoleon_Bonaparte.JPG",
+    one: "https://upload.wikimedia.org/wikipedia/commons/5/50/Jacques-Louis_David_-_The_Emperor_Napoleon_in_His_Study_at_the_Tuileries_-_Google_Art_Project.jpg",
+    two: "https://i.guim.co.uk/img/media/9caf56fe19efbc2ebc0501abeb8da801868bc3f9/0_679_3972_2383/master/3972.jpg?width=1900&dpr=2&s=none"
+  },
+  voldemort: {
+    p: "https://media.harrypotterfanzone.com/lord-voldemort-deathly-hallows-part-2-portrait.jpg"
+  }
+}
+
+descriptions = {
+  cleopatra: "Cleopatra VII Philopator (born 69 BC) was an Egyptian queen who served as the last active ruler of the Ptolemaic Kingdom of Egypt from 51 BC until her death in 30 BC. A member of the Ptolemaic dynasty, she was known for her intelligence, political acumen, and alliances with Roman leaders Julius Caesar and Mark Antony. Cleopatra's reign was marked by her efforts to stabilize Egypt and protect its independence amidst the expanding Roman Empire. She is celebrated for her strategic and romantic liaisons with powerful Roman figures, her ambitious and charismatic personality, and her tragic end, which led to Egypt becoming a province of Rome. Cleopatra remains a cultural icon of ancient Egyptian history and mythology.",
+  alexander_the_great: "Alexander III of Macedon (born July 20, 356 BC) was a Macedonian king who served as the ruler of the ancient Greek kingdom of Macedon from 336 BC until his death in 323 BC. A member of the Argead dynasty, he is commonly known as Alexander the Great and is celebrated as one of history's greatest military commanders. Alexander previously succeeded his father, King Philip II, and spent much of his reign conducting an unprecedented military campaign through Asia and northeast Africa, creating one of the largest empires of the ancient world by the age of thirty. His legacy includes the widespread dissemination of Greek culture and the establishment of numerous cities, the most famous being Alexandria in Egypt.",
+  voldemort: "Tom Marvolo Riddle, commonly known as Lord Voldemort (born December 31, 1926), was a dark wizard who served as the leader of the Death Eaters from the 1970s until his death in 1998. A member of Slytherin House during his time at Hogwarts School of Witchcraft and Wizardry, he was the most feared Dark Lord in magical history. Voldemort previously worked at Borgin and Burkes, using his charm and knowledge to locate and obtain powerful magical artifacts, and as a Dark Arts practitioner, he sought to conquer the wizarding world and achieve immortality through dark magic and Horcruxes.",
+  napoleon: "Napoleon Bonaparte (born August 15, 1769) was a French military leader and emperor who served as the ruler of France from 1799 to 1815. A member of the Bonaparte family, he rose to prominence during the French Revolution and its associated wars. Napoleon is best known for his role in the Napoleonic Wars, during which he established hegemony over much of continental Europe. He previously served as a general in the French army, gaining fame for his tactical brilliance and decisive victories. As Emperor of the French, he implemented wide-ranging reforms, including the Napoleonic Code, which influenced legal systems worldwide. Despite his initial successes, his empire eventually fell, and he was exiled first to Elba and then to Saint Helena, where he died in 1821. Napoleon's legacy remains significant in military history, law, and governance."
+}
+
+cost = [1..1000].sample
+
+user_id = users.sample.id
+
+p26 = Politician.create!( name: 'Angela Merkel', location: "Germany", cost: 600, description: "Angela Dorothea Merkel German: [aŋˈɡeːla doʁoˈteːa ˈmɛʁkl̩] ⓘ ; [a] néeKasner ; born 17 July 1954) is a German retired politician and chemist who served as  Chancellor of Germany  from 2005 to 2021 and was the first woman to hold that office. She previously served as  Leader of the Opposition  from 2002 to 2005 and as  Leader of the Christian Democratic Union  from 2000 to 2018. [9]  During her chancellorship, Merkel was frequently referred to as the  de facto  leader of the  European Union  (EU) and the most powerful woman in the world. Beginning in  2016 , she was often described as the  leader of the free world . [10]", image_url: "https://ygo-assets-entities-us.yougov.net/ef0b5614-b0b7-11e6-adde-09142178952f.jpg?pw=140", user_id: b.id )
 p1 = Politician.create!( name: 'Barack Obama', location: "USA", cost: 100, description: "Barack Hussein Obama II [a]  (born August 4, 1961) is an American politician who served as the 44th  president of the United States  from 2009 to 2017. A member of the  Democratic Party , he was the first  African-American president  in United States history. Obama previously served as a U.S. senator representing Illinois from 2005 to 2008, as an  Illinois state senator  from 1997 to 2004, and as a community service organizer, civil rights  lawyer, and university lecturer. ", image_url:"https://ygo-assets-entities-us.yougov.net/516e6836-d278-11ea-a709-979a0378f022.jpg?pw=7000", user_id: a.id )
+p15 = Politician.create!( name: 'Dick Cheney', location: "USA", cost: 1500, description: "Richard Bruce Cheney  ( /ˈtʃeɪni/ CHAY-nee ; [a]  born January 30, 1941) is an American retired politician and businessman who served as the 46th  vice president of the United States  from 2001 to 2009 under President  George W. Bush . Often cited as the most powerful vice president in American history, [4] [5]  Cheney previously served as  White House Chief of Staff  for President  Gerald Ford , the  U.S. representative  for  Wyoming's at-large congressional district  from 1979 to 1989, and as the 17th  United States secretary of defense  in the administration of President  George H. W. Bush . He is the oldest living former U.S. vice president, following the death  of  Walter Mondale  in 2021. ", image_url:"https://ygo-assets-entities-us.yougov.net/1e08e514-2d03-11e6-9570-cf1c514d3e57.jpg?pw=7000", user_id: a.id )
+p6 = Politician.create!( name: 'Donald Trump', location: "USA", cost: 600, description: "Donald John Trump  (born June 14, 1946) is an American politician, media personality, and  businessman who served as the 45th  president of the United States  from 2017 to 2021. ", image_url:"https://ygo-assets-entities-us.yougov.net/ddb8156b-fee8-11ed-9d53-6515ccbf4e2f.jpg?zcw=655&zch=655&zct=40&zcl=97&pw=7000", user_id: a.id )
+p27 = Politician.create!( name: 'Xi Jinping', location: "Taiwan", cost: 700, description: "The son of Chinese Communist veteran  Xi Zhongxun , Xi was exiled to rural  Yanchuan County  as a teenager following his father's purge during the  Cultural Revolution . He lived in a  yaodong  in the village of Liangjiahe,  Shaanxi province , where he joined the CCP after several failed attempts and worked as the local  party secretary . After studying  chemical engineering  at  Tsinghua University  as a  worker-peasant-soldier student , Xi rose through the ranks politically in China's coastal provinces. Xi was  governor of Fujian  from 1999 to 2002, before becoming governor and party secretary of neighboring  Zhejiang  from 2002 to 2007. Following the dismissal of the party secretary of Shanghai,  Chen Liangyu , Xi was transferred to replace him for a brief period in 2007. He subsequently joined the  Politburo Standing Committee  (PSC) of the CCP the same year and was the first-ranking secretary of the  Central Secretariat", image_url: "https://ygo-assets-entities-us.yougov.net/5e378ea6-2d0e-11e6-9570-cf1c514d3e57.jpg?pw=140", user_id: c.id )
+p215 = Politician.create!( name: 'Shinzō Abe', location: "Japan", cost: 1500, description: "Shinzo Abe  ( /ˈʃɪnzoʊ ˈɑːbeɪ/ SHIN-zoh AH-bay ;  Japanese :  安倍 晋三 ,  Hepburn :  Abe Shinzō ,  [abe ɕindzoː] ; 21 September 1954 – 8 July 2022) was a Japanese politician and statesman  who served as  Prime Minister of Japan  and  President of the Liberal Democratic Party  (LDP) from 2006 to 2007 and again from 2012 to 2020. He was the  longest-serving prime minister  in Japanese history, serving for almost nine years in total. Abe also served as  Chief Cabinet Secretary  from 2005 to 2006 under  Junichiro Koizumi  and was briefly the opposition leader in 2012. ", image_url: "https://ygo-assets-entities-us.yougov.net/15c478b9-3757-11e8-9e7e-d1937979c38e.jpg?zcw=220&zch=220&zct=0&zcl=0&pw=140", user_id: c.id )
+p217 = Politician.create!( name: 'Jair Bolsonaro', location: "Brazil", cost: 1700, description: "Jair Messias Bolsonaro Brazilian Portuguese: [ʒaˈiʁ meˈsi.ɐz bowsoˈnaɾu] ; born 21 March 1955) is a Brazilian politician and retired military officer who served as the 38th  president of Brazil  from 2019 to 2023. He previously served as member of Brazil's  Chamber of Deputies  from 1991 to 2018. ", image_url: "https://ygo-assets-entities-us.yougov.net/d3855ca0-cd6a-11e8-a722-affcf7e3f830.jpg?pw=140", user_id: c.id )
+p210 = Politician.create!( name: 'Mohammed bin Salman', location: "Saudi Arabia", cost: 1000, description: "Mohammed bin Salman Al Saud  ( Arabic :  محمد بن سلمان آل سعود ,  romanized:  Muḥammad bin Salmān ʾĀl Su‘ūd ; born 31 August 1985) is the  de facto  ruler of Saudi Arabia. The  heir apparent  to the  Saudi Arabian throne , he is currently  Crown Prince  and  Prime Minister . He is the seventh son of  King Salman of Saudi Arabia  and grandson of the nation's founder,  King Abdulaziz .", image_url: "https://ygo-assets-entities-us.yougov.net/568a26d2-1fa5-11e9-b579-ad83f130f935.jpg?zcw=561&zch=561&zct=0&zcl=244&pw=140", user_id: c.id )
+p7 = Politician.create!( name: 'Bernie Sanders', location: "USA", cost: 700, description: "Bernard Sanders  (born September 8, 1941) is an American politician and activist who is the  senior United States senator  from  Vermont . Sanders is the longest-serving  independent  in U.S. congressional history but has a close relationship with the  Democratic Party , having  caucused  with  House  and  Senate Democrats  for most of his congressional career and sought the party's  presidential  nomination in  2016  and  2020 , coming second in both campaigns. He is often seen as a leader of the  U.S. progressive movement", image_url:"https://ygo-assets-entities-us.yougov.net/d37b9602-098d-11e7-bbcc-8b355fa30afe.jpg?pw=7000", user_id: a.id )
+
+politicians = []
+
+
+
+
+aa = Politician.create!( name: 'Sexy Biden', location: "USA", cost: 300, description: "Joseph Robinette Biden Jr.  ( /ˈbaɪdən/ⓘ BY-dən ; born November 20, 1942) is an American politician who is the 46th and current  president of the United States  since 2021. A member of the  Democratic Party , he previously served as the 47th  vice president  from 2009 to 2017 under President  Barack Obama  and represented  Delaware  in the  United States Senate  from 1973 to 2009. ", image_url:"https://ygo-assets-entities-us.yougov.net/67a5222a-5c70-11eb-8d48-eb9b21d67bdc.jpg?pw=7000", user_id: a.id )
+bb = Politician.create!( name: 'Confused Biden', location: "USA", cost: 300, description: "Joseph Robinette Biden Jr.  ( /ˈbaɪdən/ⓘ BY-dən ; born November 20, 1942) is an American politician who is the 46th and current  president of the United States  since 2021. A member of the  Democratic Party , he previously served as the 47th  vice president  from 2009 to 2017 under President  Barack Obama  and represented  Delaware  in the  United States Senate  from 1973 to 2009. ", image_url:"https://ygo-assets-entities-us.yougov.net/67a5222a-5c70-11eb", user_id: a.id )
+
+
+User.create(email: "enzoleft@gmail.com", password: "password")
+
+p1 = Politician.create!( name: 'Barack Obama', location: "USA", cost: 100, description:
+  "Barack Hussein Obama II [a]  (born August 4, 1961) is an American politician who served as the 44th  president of the United States  from 2009 to 2017. A member of the  Democratic Party , he was the first  African-American president  in United States history. Obama previously served as a U.S. senator representing Illinois from 2005 to 2008, as an  Illinois state senator  from 1997 to 2004, and as a community service organizer, civil rights  lawyer, and university lecturer.
+  ", image_url:"https://ygo-assets-entities-us.yougov.net/516e6836-d278-11ea-a709-979a0378f022.jpg?pw=7000", user_id: a.id )
 p2 = Politician.create!( name: 'George W. Bush', location: "USA", cost: 200, description: "George Walker Bush  (born July 6, 1946) is an American politician and businessman who served  as the 43rd  president of the United States  from 2001 to 2009. A member of the  Republican Party , he previously served as the 46th  governor of Texas  from 1995 to 2000. ", image_url:"https://ygo-assets-entities-us.yougov.net/af46ff95-738d-11ea-affe-f9053ded7ac4.jpg?pw=7000", user_id: a.id )
 p3 = Politician.create!( name: 'Joe Biden', location: "USA", cost: 300, description: "Joseph Robinette Biden Jr.  ( /ˈbaɪdən/ⓘ BY-dən ; born November 20, 1942) is an American politician who is the 46th and current  president of the United States  since 2021. A member of the  Democratic Party , he previously served as the 47th  vice president  from 2009 to 2017 under President  Barack Obama  and represented  Delaware  in the  United States Senate  from 1973 to 2009. ", image_url:"https://ygo-assets-entities-us.yougov.net/67a5222a-5c70-11eb-8d48-eb9b21d67bdc.jpg?pw=7000", user_id: a.id )
 p4 = Politician.create!( name: 'Hillary Clinton', location: "USA", cost: 400, description: "Hillary Diane Rodham Clinton  ( née Rodham ; born October 26, 1947) is an American politician and diplomat who served  as the 67th  United States secretary of state  in the administration of  Barack Obama  from 2009 to 2013, as a  U.S. senator  representing New York from 2001 to 2009, and as the  first lady of the U.S.  to president  Bill Clinton  from 1993 to 2001. A member of the  Democratic Party , she was the party's nominee in the  2016 U.S. presidential election , becoming the first woman to win a presidential nomination by a major U.S.  political party and the first woman to win the popular vote for U.S.  president. ", image_url:"https://ygo-assets-entities-us.yougov.net/8f2b363a-4413-11e6-90f5-85880927bf80.jpg?pw=7000", user_id: a.id )
@@ -52,14 +110,14 @@ p220 = Politician.create!( name: 'Antonio Guterres', location: "World", cost: 19
 
 politicians = [p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15, p16, p17, p21, p22, p23, p24, p25, p26, p27, p28, p29, p210, p211, p212, p213, p214, p215, p216, p217, p218, p219, p219, p220]
 
-Booking.create!(politician_id: politicians.sample.id, user_id: d.id, status: 0)
-Booking.create(politician_id:  politicians.sample.id, user_id: d.id, status: 0)
-Booking.create(politician_id:  politicians.sample.id, user_id: d.id, status: 0)
-Booking.create(politician_id:  politicians.sample.id, user_id: d.id, status: 0)
-Booking.create(politician_id:  politicians.sample.id, user_id: e.id, status: 0)
-Booking.create(politician_id:  politicians.sample.id, user_id: e.id, status: 0)
-Booking.create(politician_id:  politicians.sample.id, user_id: e.id, status: 0)
-Booking.create(politician_id:  politicians.sample.id, user_id: e.id, status: 0)
+Booking.create!(politician_id: politicians.sample.id, user_id: a.id, status: 0)
+Booking.create(politician_id:  politicians.sample.id, user_id: a.id, status: 0)
+Booking.create(politician_id:  politicians.sample.id, user_id: a.id, status: 0)
+Booking.create(politician_id:  politicians.sample.id, user_id: a.id, status: 0)
+Booking.create(politician_id:  politicians.sample.id, user_id: b.id, status: 0)
+Booking.create(politician_id:  politicians.sample.id, user_id: b.id, status: 0)
+Booking.create(politician_id:  politicians.sample.id, user_id: c.id, status: 0)
+Booking.create(politician_id:  politicians.sample.id, user_id: c.id, status: 0)
 
 p "users: #{User.count}"
 p "polis: #{Politician.count}"
